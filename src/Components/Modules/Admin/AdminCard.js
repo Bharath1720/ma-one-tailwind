@@ -10,7 +10,7 @@ const AdminCard = (props) => {
       <div className="flex items-center">
         <span className="text-5xl mr-4">{icon}</span>
         <div>
-          <h4 className="">{heading}</h4>
+          <h4 className="text-gray-600">{heading}</h4>
           <p className="">{description}</p>
         </div>
       </div>

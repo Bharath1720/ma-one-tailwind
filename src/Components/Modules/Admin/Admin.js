@@ -163,7 +163,12 @@ const Admin = () => {
           <div className="flex flex-row ml-10 ">
             {teamData.map((eachTeam, index) => (
               <NavLink
-                className="w-1/2 ml-2"
+                className={({ isActive }) =>
+                  isActive
+                    ? "active-admin-dashboard"
+                    : "inactive-admin-dashboard"
+                }
+                // className="w-1/2 ml-2"
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
@@ -180,7 +185,11 @@ const Admin = () => {
           <div className=" flex flex-wrap p-3 gap-y-2 ">
             {workflowData.map((eachTeam, index) => (
               <NavLink
-                className="w-[44.33%] flex items-center p-3 ml-9 "
+                // className="w-[44.33%] flex items-center p-3 ml-9 "
+
+                className={({ isActive }) =>
+                  isActive ? "active-admin-workflow" : "inactive-admin-workflow"
+                }
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
@@ -219,7 +228,10 @@ const Admin = () => {
           <div className=" flex flex-wrap ">
             {masterData.map((eachTeam, index) => (
               <NavLink
-                className="w-[44%]  flex items-center ml-16 "
+                // className="w-[44%]  flex items-center ml-16 "
+                className={({ isActive }) =>
+                  isActive ? "active-admin-workflow" : "inactive-admin-workflow"
+                }
                 to={eachTeam.path}
                 key={eachTeam.id}
               >
@@ -247,7 +259,10 @@ const Admin = () => {
           <div className=" flex flex-wrap ">
             {accountData.map((eachTeam, index) => (
               <NavLink
-                className="w-[44%]  flex items-center ml-16 "
+                // className="w-[44%]  flex items-center ml-16 "
+                className={({ isActive }) =>
+                  isActive ? "active-admin-workflow" : "inactive-admin-workflow"
+                }
                 to={eachTeam.path}
                 key={eachTeam.id}
               >

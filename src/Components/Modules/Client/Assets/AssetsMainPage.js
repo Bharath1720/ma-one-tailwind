@@ -2,7 +2,7 @@ import React from "react";
 
 import AssetCard from "./AssetCard";
 
-const data = [
+export const DATAS = [
   {
     id: 1,
     uname: "Sutter Home",
@@ -169,7 +169,7 @@ const data = [
 const AssetsMainPage = () => {
   return (
     <div className="flex overflow-auto  h-screen fixed flex-wrap p-1 gap-3 flex-1 mt-2 pl-4 pb-28  ">
-      {data.map((eachUser, index) => (
+      {DATAS.map((eachUser, index) => (
         <AssetCard eachUser={eachUser} key={index} />
       ))}
     </div>

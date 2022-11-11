@@ -18,6 +18,7 @@ module.exports = {
         skin: {
           fill: "var(--fill-color)",
           indicator: "var(--fill-color-indicator)",
+          popup: "var(--var-glass-indicator)",
         },
       },
 

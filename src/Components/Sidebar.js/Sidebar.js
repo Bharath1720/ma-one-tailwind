@@ -355,7 +355,7 @@ const Sidebar = ({ children }) => {
           </div>
         </div>
         {settings && (
-          <div className="absolute bg-slate-200  w-full bottom-28 px-3 left-0">
+          <div className="absolute bg-skin-popup border  rounded-lg w-full bottom-28 px-3 left-0">
             <h4>Bharath</h4>
 
             <p>Role: Associate developer</p>

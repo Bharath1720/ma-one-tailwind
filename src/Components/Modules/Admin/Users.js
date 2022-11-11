@@ -27,76 +27,96 @@ const Users = () => {
         </div>
       </div>
 
-      {/* <h1>Good </h1>
-      <Popup
-        modal
-        trigger={
-          <button type="button" className="trigger-button">
-            Add New User
-          </button>
-        }
-      >
-        {(close) => (
-          <div className="pop-up-bg">
-            <div>
-              <div className="pop-header">
-                <h1 className="add-new-user-title">Add New User</h1>
-                <MdOutlineModeEditOutline />
-                <BsXLg onClick={() => close()} />
-              </div>
-
-              <div className="pop-up-fields">
-                <label className="pop-up-label">Full Name</label>
-                <input
-                  type="text"
-                  className="pop-up-input"
-                  placeholder="Enter User Name"
-                />
-              </div>
-              <div className="pop-up-fields">
-                <label className="pop-up-label">Email</label>
-                <input
-                  type="text"
-                  className="pop-up-input"
-                  placeholder="Enter Email"
-                />
-              </div>
-              <div className="drop-down-container">
-                <div className="drop-down">
-                  <label className="pop-up-label">Department</label>
-
-                  <select className="drop-down-options">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                  </select>
+      <div className=" p-3 flex justify-end">
+        <Popup
+          modal
+          trigger={
+            <button
+              type="button"
+              className="bg-indigo-500 rounded-md p-3 text-sky-50 font-extrabold  "
+            >
+              Add New User
+            </button>
+          }
+        >
+          {(close) => (
+            <div className=" bg-gray-100 rounded-lg ring ring-gray-100 p-4 w-[500px] m-auto">
+              <div>
+                <div className=" flex justify-between p-2  items-center">
+                  <h1 className="text-2xl font-semibold">Add New User</h1>
+                  {/* <MdOutlineModeEditOutline className="text-2xl" /> */}
+                  <BsXLg className="cursor-pointer" onClick={() => close()} />
                 </div>
-                <div className="drop-down">
-                  <label className="pop-up-label">Security</label>
-                  <select className="drop-down-options">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                  </select>
-                </div>
+
+                {/* Form Fields */}
+
+                <form className="flex flex-col space-y-2">
+                  <div>
+                    <label htmlFor="name" className="text-xl font-bold">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full mt-1 p-2 outline-none ring-1 ring-gray-300 rounded-md "
+                      id="name"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="name" className="text-xl font-bold">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full mt-1 p-2 outline-none ring-1 ring-gray-300 rounded-md "
+                      id="email"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="department" className="text-xl font-bold">
+                      Departments
+                    </label>
+                    <select
+                      id="department"
+                      className="w-full mt-1 p-2 outline-none ring-1 ring-gray-300 rounded-md"
+                    >
+                      <option>Select</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="department" className="text-xl font-bold">
+                      Security
+                    </label>
+                    <select
+                      id="department"
+                      className="w-full mt-1 p-2 outline-none ring-1 ring-gray-300 rounded-md"
+                    >
+                      <option>Select</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div className="p-2 mt-3 flex justify-end">
+                <button
+                  type="button"
+                  className="bg-black rounded-lg text-white p-2 px-4"
+                >
+                  Create
+                </button>
+
+                <button
+                  type="button"
+                  className="bg-black rounded-lg text-white p-2 px-4 mx-2"
+                  onClick={() => close()}
+                >
+                  Close
+                </button>
               </div>
             </div>
-            <div className="pop-up-btns">
-              <button
-                type="button"
-                className="pop-up-button"
-                onClick={() => close()}
-              >
-                Close
-              </button>
-              <button type="button" className="pop-up-button create-btn">
-                Create
-              </button>
-            </div>
-          </div>
-        )}
-      </Popup> */}
-
+          )}
+        </Popup>
+      </div>
       <UserTableGrid />
     </div>
 
