@@ -1,0 +1,17 @@
+1) Everything will be moved to redux (going go optimize the code )
+
+2)Optimizing the tailwind css (configuring everything takes time for review I have completed very fast )
+
+3)After running the app u can't see anything in the localhost 
+
+4)change the url of localhost to : localhost://3000/login
+
+
+5)username artwork
+password artwork
+
+
+6)Authentication for the application is not yet done
+
+7)protected routes is also not done (to do  this need some backend )
+

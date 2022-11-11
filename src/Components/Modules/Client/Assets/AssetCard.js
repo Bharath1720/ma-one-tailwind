@@ -8,10 +8,10 @@ const AssetCard = (props) => {
   const { id, pics, pname, uid, uname } = eachUser;
 
   return (
-    <div className="flex flex-col drop-shadow-2xl  border-gray-100 shadow-lg rounded-xl ">
+    <div className="flex h-fit drop-shadow-2xl  border-gray-100 shadow-lg rounded-xl ">
       <div className="">
         <img className="h-40 w-40" src={pics} alt={pname} />
-        <div className="flex bg-gray-300 h-14 items-center ">
+        <div className="flex bg-gray-300 h-14 w-40 items-center ">
           <p className="bg-slate-500 text-white font-semibold p-2 pt-[17px] h-14  ">
             {uid}
           </p>
@@ -32,15 +32,3 @@ const AssetCard = (props) => {
 };
 
 export default AssetCard;
-
-// .product-version {
-//     margin-top: 11px;
-//     background-color: #636363;
-//     padding: 5px;
-//     height: 42px;
-//     margin-top: 0px;
-//     margin-left: -8px;
-//     padding-top: 10px;
-//     color: #e3e3e3;
-//     font-weight: bold;
-//   }

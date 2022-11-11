@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { MdNotifications } from "react-icons/md";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { BsSliders } from "react-icons/bs";
@@ -57,7 +57,7 @@ const Browse = () => {
     });
     return NewData;
   }
-  const filteredData = () => {
+  function filteredData() {
     if (refone.current.checked) {
       let dId = refone.current.value;
       fdata = filters(dId);
@@ -85,7 +85,7 @@ const Browse = () => {
     } else {
       setData(false);
     }
-  };
+  }
 
   const filesList = [
     { name: "A3", Ref: refone, Val: "V1", Nums: "One", Names: "grocery" },
@@ -157,17 +157,16 @@ const Browse = () => {
 
       {/* Accordations */}
       <div className="flex">
-        <div className="flex h-fit overflow-auto flex-col w-1/4">
+        <div className="flex h-fit shrink-0 overflow-auto flex-col w-1/4">
           {filesList.map((eachFile, index) => (
             <>
               <div className="" key={index}>
                 <Disclosure>
-                  {({ open }) => (
-                    <>
-                      {/* <pre>{JSON.stringify(eachFile)}</pre>
+                  <>
+                    {/* <pre>{JSON.stringify(eachFile)}</pre>
                     console.log(eachFile) */}
-
-                      <Disclosure.Button className="text-left outline-none transition duration-200  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-4 w-full">
+                    <Disclosure.Button className="text-left outline-none transition duration-200  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-4 w-full">
+                      {({ open }) => (
                         <div className="flex justify-between items-center">
                           <div className="flex items-center">
                             <svg
@@ -199,25 +198,26 @@ const Browse = () => {
                             </span>
                           )}
                         </div>
-                      </Disclosure.Button>
-                      <Disclosure.Panel className="px-4 bg-white overflow-hidden">
-                        <div className="">
-                          <input
-                            type="checkbox"
-                            ref={eachFile.Ref}
-                            onChange={filteredData}
-                            name=""
-                            id={eachFile.Nums}
-                            value={eachFile.Val}
-                            className=""
-                          />
-                          <label htmlFor={eachFile.Nums} className="">
-                            {eachFile.Val} Items
-                          </label>
-                        </div>
-                      </Disclosure.Panel>
-                    </>
-                  )}
+                      )}
+                    </Disclosure.Button>
+
+                    <Disclosure.Panel className="px-4 bg-white overflow-hidden">
+                      <div className="p-1 flex space-x-2">
+                        <input
+                          type="checkbox"
+                          ref={eachFile.Ref}
+                          onChange={filteredData}
+                          name=""
+                          id={eachFile.Nums}
+                          value={eachFile.Val}
+                          className=""
+                        />
+                        <label htmlFor={eachFile.Nums} className="">
+                          {eachFile.Val} Items
+                        </label>
+                      </div>
+                    </Disclosure.Panel>
+                  </>
                 </Disclosure>
 
                 {/* <button className="accordion text-left outline-none transition duration-200 focus:bg-gray-300 bg-gray-200 text-gray-500 cursor-pointer p-4 w-full">
@@ -230,7 +230,7 @@ const Browse = () => {
             </>
           ))}
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div className="flex p-2 flex-wrap content-start gap-3">
           {data &&
             fdata.map((eachUser, index) => {
               return <AssetCard key={index} eachUser={eachUser}></AssetCard>;
