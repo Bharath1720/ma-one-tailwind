@@ -13,5 +13,5 @@ password artwork
 
 6)Authentication for the application is not yet done
 
-7)protected routes is also not done (to do  this need some backend )
+7)protected routes is also not done 
 

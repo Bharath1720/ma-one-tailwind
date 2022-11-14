@@ -29,7 +29,7 @@ const Reporting = () => {
               horizontalAlign: "center",
             },
 
-            labels: ["Hindi", "Math", "English", "science", "social"],
+            labels: ["Brief", "Print", "Artwork", "Uploaded", "Approval"],
           }}
         />
       </div>
