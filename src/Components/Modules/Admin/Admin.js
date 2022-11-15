@@ -160,7 +160,7 @@ const Admin = () => {
 
         <div>
           <h1 className=" text-2xl ml-5 my-4 font-extrabold">Team</h1>
-          <div className="flex flex-row ml-10 ">
+          <div className="flex flex-row p-2 ml-8 gap-y-4 ">
             {teamData.map((eachTeam, index) => (
               <NavLink
                 className={({ isActive }) =>
@@ -182,7 +182,7 @@ const Admin = () => {
 
         <div className=" flex flex-col flex-1 my-4 flex-wrap ">
           <h1 className=" text-2xl ml-5 mt-3 font-extrabold">Workflow</h1>
-          <div className=" flex flex-wrap p-3 gap-y-2 ">
+          <div className=" flex flex-wrap p-3 gap-y-4 ">
             {workflowData.map((eachTeam, index) => (
               <NavLink
                 // className="w-[44.33%] flex items-center p-3 ml-9 "
@@ -225,7 +225,7 @@ const Admin = () => {
 
         <div className=" flex flex-col flex-1 flex-wrap ">
           <h1 className=" text-2xl ml-5 font-extrabold">Master Lists</h1>
-          <div className=" flex flex-wrap ">
+          <div className=" flex flex-wrap p-3 gap-y-4 ">
             {masterData.map((eachTeam, index) => (
               <NavLink
                 // className="w-[44%]  flex items-center ml-16 "
@@ -256,7 +256,7 @@ const Admin = () => {
 
         <div className=" flex flex-col flex-1 flex-wrap ">
           <h1 className=" text-2xl ml-5 font-extrabold">Account</h1>
-          <div className=" flex flex-wrap ">
+          <div className=" flex flex-wrap p-3 gap-y-4">
             {accountData.map((eachTeam, index) => (
               <NavLink
                 // className="w-[44%]  flex items-center ml-16 "

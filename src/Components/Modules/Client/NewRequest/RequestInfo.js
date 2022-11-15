@@ -20,11 +20,11 @@ const inputFields = [
 const RequestInfo = () => {
   return (
     <section>
-      <div className="flex flex-wrap flex-1 gap-3  p-3 mt-3 ">
+      <div className="flex flex-wrap flex-1 gap-4 gap-x-6 p-3 mt-3 ">
         {inputFields.map((inputField, index) => (
-          <div className="relative" key={inputField.id}>
+          <div className="relative w-[32%]" key={inputField.id}>
             <input
-              className="bg-white peer h-11 w-72 border border-slate-300 outline-none rounded-md px-9 py-3 md:px-3 md:py-2"
+              className="bg-white peer h-11 w-full border border-slate-300 outline-none rounded-md px-9 py-3 md:px-3 md:py-2"
               type="text"
               required
             />
@@ -40,11 +40,11 @@ const RequestInfo = () => {
       </div>
 
       {/* Buttons container */}
-      <div className="flex justify-center gap-3 items-center p-3">
-        <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium ">
+      <div className="flex justify-center fixed left-1/2 bottom-0 gap-3 items-center p-3">
+        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium ">
           Submit
         </button>
-        <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium">
+        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium">
           Save
         </button>
       </div>

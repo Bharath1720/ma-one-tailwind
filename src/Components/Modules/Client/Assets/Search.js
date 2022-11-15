@@ -169,7 +169,10 @@ const Search = () => {
     <section className="">
       <div className="flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
         <div className="flex items-center ">
-          <Dropdown className="mr-2" icon={<BsSliders className="h-36" />}>
+          <Dropdown
+            className="mr-2"
+            icon={<BsSliders className="h-36" strokeWidth={1} />}
+          >
             {dropdownMenu.map((item) => (
               <Dropdown.Item key={item.id} icon={item.icon}>
                 {item.text}
@@ -186,21 +189,21 @@ const Search = () => {
       </div>
 
       {/* Accordations */}
-      <div className="flex w-full">
-        <div className="flex h-fit overflow-auto shrink-0 flex-col w-1/4">
-          <h4 className="ml-8 py-2 tracking-wider font-bold">Filters</h4>
+      <div className="flex fixed w-screen">
+        <div className="flex h-fit overflow-auto shrink-0 flex-col w-72">
+          <h4 className="ml-4 py-2 tracking-wider text-lg  font-bold">
+            Filters
+          </h4>
           {filesList.map((eachFile, indexss) => (
             <>
               <div className="" key={indexss}>
                 <Disclosure className="overflow-auto">
                   {({ open }) => (
                     <>
-                      <Disclosure.Button className="text-left outline-none  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-4 w-full">
+                      <Disclosure.Button className="text-left outline-none border  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-2 w-full">
                         <div className="flex justify-between items-center">
                           <div className="flex items-center">
-                            <p className="text-lg ml-2 font-medium">
-                              {eachFile.name}
-                            </p>
+                            <p className="text-base ml-2">{eachFile.name}</p>
                           </div>
 
                           <span
@@ -214,7 +217,7 @@ const Search = () => {
                               viewBox="0 0 24 24"
                               strokeWidth={1.5}
                               stroke="currentColor"
-                              className="w-6 h-6"
+                              className="w-4 h-4 text-xl"
                             >
                               <path
                                 strokeLinecap="round"
@@ -236,7 +239,7 @@ const Search = () => {
                       >
                         <Disclosure.Panel
                           static
-                          className="px-4 bg-white overflow-hidden"
+                          className="px-4 bg-white overflow-hidden border"
                         >
                           {fileSubList.map((edata, index) => (
                             <div>
@@ -263,7 +266,7 @@ const Search = () => {
                                   </svg>
                                 </div>
                               )}
-                              <div className="px-2 mt-1 py-1 flex space-x-2">
+                              <div className="px-2 py-2 mt-1  flex space-x-2">
                                 <input
                                   type="checkbox"
                                   ref={edata.refValue}
@@ -294,7 +297,7 @@ const Search = () => {
             </>
           ))}
         </div>
-        <div className="flex p-2 flex-wrap content-start gap-3">
+        <div className="flex p-2 w-2/3 overflow-auto h-screen flex-wrap content-start gap-3">
           {data &&
             fdata.map((eachUser, index) => {
               return <AssetCard key={index} eachUser={eachUser}></AssetCard>;
@@ -303,6 +306,10 @@ const Search = () => {
             Newfdata.map((eachUser, index) => {
               return <AssetCard key={index} eachUser={eachUser}></AssetCard>;
             })}
+          {!data &&
+            DATAS.map((eachUser, index) => (
+              <AssetCard eachUser={eachUser} key={index} />
+            ))}
         </div>
       </div>
     </section>

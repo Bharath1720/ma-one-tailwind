@@ -5,6 +5,8 @@ import { BsFillQuestionCircleFill } from "react-icons/bs";
 import { BsSliders } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
 
+import { NavLink } from "react-router-dom";
+
 import { MdOutlineModeEditOutline } from "react-icons/md";
 
 import Popup from "reactjs-popup";
@@ -18,8 +20,28 @@ const Users = () => {
       <div className="  flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
         <div className="flex items-center">
           <FiUsers className="text-2xl mr-3" />
+          <nav className="">
+            <ul className="flex mt-1 space-x-1">
+              <li className="after:content-['>'] pl-2 after:px-2 ">
+                <NavLink
+                  to="/admin"
+                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                >
+                  Admin
+                </NavLink>
+              </li>
 
-          <h1 className="text-2xl">Admin Users </h1>
+              <li>
+                <NavLink
+                  to="/admin/users"
+                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                >
+                  Users
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+          {/* <h1 className="text-2xl">Admin Users </h1> */}
         </div>
         <div className="flex">
           <MdNotifications className="text-2xl mr-4" />
@@ -40,19 +62,19 @@ const Users = () => {
           }
         >
           {(close) => (
-            <div className=" bg-gray-100 rounded-lg ring ring-gray-100 p-4 w-[500px] m-auto">
-              <div>
-                <div className=" flex justify-between p-2  items-center">
-                  <h1 className="text-2xl font-semibold">Add New User</h1>
+            <div className=" bg-gray-100 rounded-lg ring ring-gray-100 w-[500px] m-auto">
+              <div className="">
+                <div className=" flex justify-between p-4  items-center border-b-2  ">
+                  <h1 className="text-xl font-semibold">Add New User</h1>
                   {/* <MdOutlineModeEditOutline className="text-2xl" /> */}
                   <BsXLg className="cursor-pointer" onClick={() => close()} />
                 </div>
 
                 {/* Form Fields */}
 
-                <form className="flex flex-col space-y-2">
+                <form className="flex p-3 flex-col space-y-2">
                   <div>
-                    <label htmlFor="name" className="text-xl font-bold">
+                    <label htmlFor="name" className="text-base ">
                       Full Name
                     </label>
                     <input
@@ -62,7 +84,7 @@ const Users = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="name" className="text-xl font-bold">
+                    <label htmlFor="name" className="text-base ">
                       Email
                     </label>
                     <input
@@ -73,7 +95,7 @@ const Users = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="department" className="text-xl font-bold">
+                    <label htmlFor="department" className="text-base ">
                       Departments
                     </label>
                     <select
@@ -85,7 +107,7 @@ const Users = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="department" className="text-xl font-bold">
+                    <label htmlFor="department" className="text-base">
                       Security
                     </label>
                     <select
@@ -97,7 +119,7 @@ const Users = () => {
                   </div>
                 </form>
               </div>
-              <div className="p-2 mt-3 flex justify-end">
+              <div className="p-3 mt-3 flex justify-end border-t-2 ">
                 <button
                   type="button"
                   className="bg-black rounded-lg text-white p-2 px-4"

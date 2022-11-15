@@ -156,8 +156,8 @@ const Browse = () => {
       </div>
 
       {/* Accordations */}
-      <div className="flex">
-        <div className="flex h-fit shrink-0 overflow-auto flex-col w-1/4">
+      <div className="flex w-screen fixed">
+        <div className="flex h-screen shrink-0 overflow-auto flex-col w-72">
           {filesList.map((eachFile, index) => (
             <>
               <div className="" key={index}>
@@ -165,7 +165,7 @@ const Browse = () => {
                   <>
                     {/* <pre>{JSON.stringify(eachFile)}</pre>
                     console.log(eachFile) */}
-                    <Disclosure.Button className="text-left outline-none transition duration-200  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-4 w-full">
+                    <Disclosure.Button className="text-left outline-none transition duration-200  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-2 w-full border border-b-2">
                       {({ open }) => (
                         <div className="flex justify-between items-center">
                           <div className="flex items-center">
@@ -183,12 +183,15 @@ const Browse = () => {
                                 d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776"
                               />
                             </svg>
-                            <p className="text-lg ml-2 font-medium">
+                            <p
+                              className="text-base ml-2  truncate w-48"
+                              title={eachFile.name}
+                            >
                               {eachFile.name}
                             </p>
                           </div>
                           {!open && (
-                            <span className="font-bold text-2xl  ui-open:rotate-60 ui-open:transform">
+                            <span className="font-bold text-xl  ui-open:rotate-60 ui-open:transform">
                               +
                             </span>
                           )}
@@ -201,7 +204,7 @@ const Browse = () => {
                       )}
                     </Disclosure.Button>
 
-                    <Disclosure.Panel className="px-4 bg-white overflow-hidden">
+                    <Disclosure.Panel className="px-4 py-2 border-r-0 bg-white overflow-hidden">
                       <div className="p-1 flex space-x-2">
                         <input
                           type="checkbox"
@@ -230,11 +233,15 @@ const Browse = () => {
             </>
           ))}
         </div>
-        <div className="flex p-2 flex-wrap content-start gap-3">
+        <div className="flex p-2 w-2/3 overflow-auto h-screen flex-wrap content-start gap-3">
           {data &&
             fdata.map((eachUser, index) => {
               return <AssetCard key={index} eachUser={eachUser}></AssetCard>;
             })}
+          {!data &&
+            DATAS.map((eachUser, index) => (
+              <AssetCard eachUser={eachUser} key={index} />
+            ))}
         </div>
       </div>
     </section>

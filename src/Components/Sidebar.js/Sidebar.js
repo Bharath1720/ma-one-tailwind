@@ -157,134 +157,54 @@ const Sidebar = ({ children }) => {
         <ul className="pt-6">
           {menuItem.map((menu, index) => {
             // Asset here
-            if (menu.path === "/assets") {
-              return (
-                <Menu as="div" className="relative">
-                  <NavLink
-                    to={menu.path}
-                    className={({ isActive }) =>
-                      isActive ? "active-state" : "inactive-state"
-                    }
-                    // className={`flex ${open && "w-64"} ${({ isActive }) =>
-                    //   isActive
-                    //     ? "active-state"
-                    //     : "inactive-state"} p-2 mt-2 justify-between items-center rounded-md bg-transparent text-lg font-medium text-white  focus:outline-none `}
-                  >
-                    <span
-                      className={`text-xl flex ${
-                        !open && "ml-1"
-                      } items-center `}
-                    >
-                      {open && (
-                        <>
-                          {menu.icon}{" "}
-                          <span className="text-base ml-[19px] ">Asset</span>
-                        </>
-                      )}
-                      {!open && <> {menu.icon} </>}
-                    </span>
-                    <Menu.Button>
-                      {open && (
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="#ffffff"
-                          className="w-6 h-6 ml-28"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
-                      )}
-
-                      {/* <ChevronDownIcon
-                        className="-mr-1 ml-2 h-5 w-5"
-                        aria-hidden="true"
-                      /> */}
-                    </Menu.Button>
-                  </NavLink>
-
-                  <Transition
-                    as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 top-0 left-64 ml-1 z-10 mt-2 w-56 origin-top-right  rounded-md bg-slate-200  ring-black ring-opacity-5 focus:outline-none">
-                      <div
-                        className={`text-xl ${
-                          !open && "hidden"
-                        } py-1   duration-200 `}
-                      >
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="/assets/search"
-                              // element={<AssetSearch />}
-
-                              className={classNames(
-                                active
-                                  ? "bg-gray-100 text-gray-900"
-                                  : "text-gray-700",
-                                "flex items-center space-x-2 hover:no-underline px-4 py-3 text-lg"
-                              )}
-                            >
-                              <BiTable />
-                              <span>Search</span>
-                            </NavLink>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="/assets/browse"
-                              // element={<AssetBrowse />}
-
-                              className={classNames(
-                                active
-                                  ? "bg-gray-100 text-gray-900"
-                                  : "text-gray-700",
-                                "flex items-center space-x-2 text-lg hover:no-underline  px-4 py-3"
-                              )}
-                            >
-                              <BiTable />
-                              <span>Browse</span>
-                            </NavLink>
-                          )}
-                        </Menu.Item>
-                      </div>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              );
-            }
 
             return (
-              <NavLink
-                to={menu.path}
-                key={index}
-                // className="text-gray-300 mt-2 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md "
+              <div className="group relative">
+                <NavLink
+                  to={menu.path}
+                  key={index}
+                  // className="text-gray-300 mt-2 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-light-white rounded-md "
 
-                className={({ isActive }) =>
-                  isActive ? "active-state" : "inactive-state"
-                }
-              >
-                <span className={`text-2xl ${!open && "ml-1"} `}>
-                  {menu.icon}
-                </span>
-                <span
-                  className={`text-base ${!open && "hidden"}   duration-200 `}
+                  className={({ isActive }) =>
+                    isActive ? "active-state" : "inactive-state"
+                  }
                 >
-                  {menu.name}
-                </span>
-              </NavLink>
+                  <span className={`text-2xl ${!open && "ml-1"} `}>
+                    {menu.icon}
+                  </span>
+                  <span
+                    className={`text-base ${!open && "hidden"}   duration-200 `}
+                  >
+                    {menu.name}
+                  </span>
+                </NavLink>
+                {menu.name === "Assets" && (
+                  <div className="hidden group-hover:block absolute -right-32 z-20 top-0 ">
+                    <NavLink
+                      to="/assets/search"
+                      // element={<AssetSearch />}
+
+                      className={
+                        "bg-gray-100 hover:text-gray-900 visited:text-gray-900 visited:no-underline  text-gray-400  hover:bg-gray-300  flex items-center space-x-2 hover:no-underline  px-6 py-4 text-lg"
+                      }
+                    >
+                      <BiTable />
+                      <span>Search</span>
+                    </NavLink>
+                    <NavLink
+                      to="/assets/browse"
+                      // element={<AssetBrowse />}
+
+                      className={
+                        "bg-gray-100  hover:bg-gray-300 hover:text-gray-900 text-gray-400 flex items-center space-x-2 text-lg hover:no-underline px-6 pr-3 py-4"
+                      }
+                    >
+                      <BiTable />
+                      <span>Browse</span>
+                    </NavLink>
+                  </div>
+                )}
+              </div>
             );
           })}
         </ul>
@@ -310,7 +230,7 @@ const Sidebar = ({ children }) => {
         {/* Themes and profile details container*/}
         <div className={` ${applyStylesToProfile}  `}>
           {/* Themes slider  */}
-          <div className="flex justify-between mb-2 ">
+          <div className="flex justify-between pb-4 ">
             {open && <h6>{`${toggleTexts}`}</h6>}
 
             <div
@@ -326,7 +246,7 @@ const Sidebar = ({ children }) => {
 
           {/* Profile details container */}
 
-          <div className=" flex mb-2  items-center  ">
+          <div className=" flex mb-6  items-center  ">
             <img
               className={open ? "profile-lg" : "profile-sm"}
               src="https://assets.ccbp.in/frontend/react-js/esther-howard-img.png"
@@ -371,3 +291,112 @@ const Sidebar = ({ children }) => {
 };
 
 export default Sidebar;
+
+// if (menu.path === "/assets") {
+//   return (
+//     <Menu as="div" className="relative" key={index}>
+//       <NavLink
+//         to={menu.path}
+//         className={({ isActive }) =>
+//           isActive ? "active-state" : "inactive-state"
+//         }
+//         // className={`flex ${open && "w-64"} ${({ isActive }) =>
+//         //   isActive
+//         //     ? "active-state"
+//         //     : "inactive-state"} p-2 mt-2 justify-between items-center rounded-md bg-transparent text-lg font-medium text-white  focus:outline-none `}
+//       >
+//         <span
+//           className={`text-xl flex ${
+//             !open && "ml-1"
+//           } items-center `}
+//         >
+//           {open && (
+//             <>
+//               {menu.icon}{" "}
+//               <span className="text-base ml-[19px] ">Asset</span>
+//             </>
+//           )}
+//           {!open && <> {menu.icon} </>}
+//         </span>
+//         <Menu.Button>
+//           {open && (
+//             <svg
+//               xmlns="http://www.w3.org/2000/svg"
+//               fill="none"
+//               viewBox="0 0 24 24"
+//               strokeWidth={1.5}
+//               stroke="#ffffff"
+//               className="w-6 h-6 ml-28"
+//             >
+//               <path
+//                 strokeLinecap="round"
+//                 strokeLinejoin="round"
+//                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
+//               />
+//             </svg>
+//           )}
+
+//           {/* <ChevronDownIcon
+//             className="-mr-1 ml-2 h-5 w-5"
+//             aria-hidden="true"
+//           /> */}
+//         </Menu.Button>
+//       </NavLink>
+
+//       <Transition
+//         as={Fragment}
+//         enter="transition ease-out duration-100"
+//         enterFrom="transform opacity-0 scale-95"
+//         enterTo="transform opacity-100 scale-100"
+//         leave="transition ease-in duration-75"
+//         leaveFrom="transform opacity-100 scale-100"
+//         leaveTo="transform opacity-0 scale-95"
+//       >
+//         <Menu.Items className="absolute right-0 top-0 left-64 ml-1 z-10 mt-2 w-56 origin-top-right  rounded-md bg-slate-200  ring-black ring-opacity-5 focus:outline-none">
+//           <div
+//             className={`text-xl ${
+//               !open && "hidden"
+//             } py-1   duration-200 `}
+//           >
+//             <Menu.Item>
+//               {({ active }) => (
+//                 <NavLink
+//                   to="/assets/search"
+//                   // element={<AssetSearch />}
+
+//                   className={classNames(
+//                     active
+//                       ? "bg-gray-100 text-gray-900"
+//                       : "text-gray-700",
+//                     "flex items-center space-x-2 hover:no-underline px-4 py-3 text-lg"
+//                   )}
+//                 >
+//                   <BiTable />
+//                   <span>Search</span>
+//                 </NavLink>
+//               )}
+//             </Menu.Item>
+//             <Menu.Item>
+//               {({ active }) => (
+//                 <NavLink
+//                   to="/assets/browse"
+//                   // element={<AssetBrowse />}
+
+//                   className={classNames(
+//                     active
+//                       ? "bg-gray-100 text-gray-900"
+//                       : "text-gray-700",
+//                     "flex items-center space-x-2 text-lg hover:no-underline  px-4 py-3"
+//                   )}
+//                 >
+//                   <BiTable />
+//                   <span>Browse</span>
+//                 </NavLink>
+//               )}
+//             </Menu.Item>
+//           </div>
+//         </Menu.Items>
+//       </Transition>
+//     </Menu>
+//   );
+// }

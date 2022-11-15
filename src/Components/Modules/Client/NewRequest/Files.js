@@ -63,7 +63,7 @@ const Files = () => {
             return (
               <tr className="bg-gray-50 border-b-2 border" key={each.id}>
                 <td className="p-3 text-sm font-semibold tracking-wide text-left flex items-center">
-                  <span className="bg-amber-400 p-2 rounded-lg">
+                  <span className="bg-blue-400 text-white p-2 pt-1 text-xs rounded-lg">
                     {each.actions}
                   </span>
 
@@ -91,11 +91,11 @@ const Files = () => {
       </table>
 
       {/* Buttons container */}
-      <div className="flex justify-center gap-3 items-center p-3">
-        <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium ">
+      <div className="flex justify-center fixed left-1/2 bottom-0 gap-3 items-center p-3">
+        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium ">
           Submit
         </button>
-        <button className="bg-gray-700 px-5 py-3 rounded-lg tracking-wide  text-white font-medium">
+        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium">
           Save
         </button>
       </div>

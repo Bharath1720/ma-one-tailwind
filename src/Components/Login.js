@@ -150,7 +150,7 @@ const Login = ({ children }) => {
                   )}
                 </span>
 
-                <p class="mt-2 invisible peer-focus:peer-invalid:visible text-pink-600 text-sm">
+                <p className="mt-2 invisible peer-focus:peer-invalid:visible text-pink-600 text-sm">
                   Please provide a valid password.
                 </p>
               </div>
