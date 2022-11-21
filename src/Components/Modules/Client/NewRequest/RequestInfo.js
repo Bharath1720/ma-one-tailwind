@@ -1,5 +1,9 @@
 import React from "react";
 
+import { useContext } from "react";
+
+import { AppContext } from "../../../../Context";
+
 const inputFields = [
   { id: 1, inputType: "text", placeholder: "Request Info" },
   { id: 2, inputType: "text", placeholder: "Initaied By" },
@@ -17,34 +21,43 @@ const inputFields = [
   { id: 14, inputType: "text", placeholder: "Productio Site" },
 ];
 
-const RequestInfo = () => {
+const RequestInfo = ({ children }) => {
+  const { theme } = useContext(AppContext);
+
+  const toggleBorders =
+    theme === true ? "border  border-gray-300 border-opacity-20" : "";
+
   return (
     <section>
-      <div className="flex flex-wrap flex-1 gap-4 gap-x-6 p-3 mt-3 ">
+      <div className="flex flex-wrap  flex-1 gap-4 gap-x-6 p-3 mt-3 ">
         {inputFields.map((inputField, index) => (
-          <div className="relative w-[32%]" key={inputField.id}>
-            <input
-              className="bg-white peer h-11 w-full border border-slate-300 outline-none rounded-md px-9 py-3 md:px-3 md:py-2"
-              type="text"
-              required
-            />
-            <label
-              className="absolute mt-1 top-2 left-3 peer-focus:duration-200 peer-focus:-translate-y-5 peer-valid:-translate-y-5 peer-focus:bg-white peer-valid:bg-white peer-valid:font-bold peer-focus:font-bold text-gray-400 transition duration-100"
-              htmlFor="input"
-              alt=""
-            >
-              {inputField.placeholder}
-            </label>
+          <div className=" w-[32%]">
+            <div className="relative ">
+              <input
+                type="text"
+                id={inputField.id}
+                className={`h-11 border bg-skin-rightSideColor ${toggleBorders}  py-1 w-full rounded-md focus:outline-none text-base  focus:border transition-colors peer`}
+                autocomplete="off"
+                required
+              />
+
+              <label
+                htmlFor={inputField.id}
+                className="absolute peer-valid:font-semibold peer-valid:bg-skin-rightSideColor peer-valid:-top-3 peer-valid:text-sm  px-2 left-2 top-[12px] text-gray-400 cursor-text peer-focus:text-sm peer-focus:font-semibold peer-focus:left-2 peer-focus:bg-skin-rightSideColor peer-focus:-top-3  transition-all"
+              >
+                {inputField.placeholder}
+              </label>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Buttons container */}
       <div className="flex justify-center fixed left-1/2 bottom-0 gap-3 items-center p-3">
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium ">
+        <button className="bg-gray-700 p-3 py-2 rounded-md tracking-wide  text-white font-medium ">
           Submit
         </button>
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium">
+        <button className="bg-gray-700 p-3 py-2 rounded-md tracking-wide  text-white font-medium">
           Save
         </button>
       </div>
@@ -53,3 +66,7 @@ const RequestInfo = () => {
 };
 
 export default RequestInfo;
+
+{
+  /* <div className="relative w-[32%]" key={inputField.id}> */
+}

@@ -4,6 +4,22 @@ import ReactDataGrid from "@inovua/reactdatagrid-enterprise";
 import "@inovua/reactdatagrid-enterprise/index.css";
 import CheckBox from "@inovua/reactdatagrid-community/packages/CheckBox";
 
+import "@inovua/reactdatagrid-enterprise/index.css";
+import "@inovua/reactdatagrid-enterprise/theme/default-light.css";
+import "@inovua/reactdatagrid-enterprise/theme/default-dark.css";
+import "@inovua/reactdatagrid-enterprise/theme/pink-dark.css";
+import "@inovua/reactdatagrid-enterprise/theme/amber-light.css";
+import "@inovua/reactdatagrid-enterprise/theme/amber-dark.css";
+import "@inovua/reactdatagrid-enterprise/theme/blue-light.css";
+import "@inovua/reactdatagrid-enterprise/theme/blue-dark.css";
+import "@inovua/reactdatagrid-enterprise/theme/green-light.css";
+import "@inovua/reactdatagrid-enterprise/theme/green-dark.css";
+import "@inovua/reactdatagrid-enterprise/theme/pink-light.css";
+
+import { useContext } from "react";
+
+import { AppContext } from "../../Context";
+
 const columns = [
   { name: "Name", defaultFlex: 1, header: " NAME" },
   { name: "Mail", defaultFlex: 1, header: " MAIL" },
@@ -55,7 +71,7 @@ const dataSource = [
   },
 ];
 
-const gridStyle = { minHeight: 550 };
+const gridStyle = { minHeight: 290 };
 
 const filterValue = [
   { name: "Name", operator: "startsWith", type: "string", value: "" },
@@ -64,11 +80,15 @@ const filterValue = [
   { name: "Security", operator: "startsWith", type: "string", value: "" },
 ];
 
-const UserTableGrid = () => {
+const UserTableGrid = ({ children }) => {
   const [checkboxOnlyRowSelect, setCheckboxOnlyRowSelect] = useState(true);
   const [checkboxColumn, setCheckboxColumn] = useState(true);
   const [enableColumnFilterContextMenu, setEnableColumnFilterContextMenu] =
     useState(true);
+
+  const { theme } = useContext(AppContext);
+
+  const applyThemes = theme === false ? "default-light" : "default-dark";
 
   return (
     <div>
@@ -81,6 +101,7 @@ const UserTableGrid = () => {
         checkboxColumn={checkboxColumn}
         checkboxOnlyRowSelect={checkboxOnlyRowSelect}
         rowHeight={50}
+        theme={applyThemes}
         // defaultFilterValue={filterValue}
         // pagination
         // enableColumnFilterContextMenu={enableColumnFilterContextMenu}

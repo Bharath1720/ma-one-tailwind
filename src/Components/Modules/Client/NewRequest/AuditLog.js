@@ -1,8 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-
-
 const AuditLog = () => {
   const tableData = [
     {
@@ -70,7 +68,7 @@ const AuditLog = () => {
     },
     {
       id: uuidv4(),
-      name: "Print Proof Approval	",
+      name: "Print Proof Approval",
       owner: "User4",
       Duration: "3",
       startDate: "23 Jul 2022 11:01",
@@ -80,29 +78,29 @@ const AuditLog = () => {
   ];
 
   return (
-    <div className="mx-2 my-2">
+    <div className="p-1 pt-3">
       <table className="container border-slate-300 mx-auto table-auto rounded-lg">
-        <thead className="bg-gray-200">
-          <tr className="border border-slate-300">
-            <th className="py-4 pl-3 text-left">Task Name</th>
-            <th className="text-left">Task Owner</th>
-            <th className="text-left pr-14">Duration</th>
-            <th className="text-left pr-14">Start Date</th>
-            <th className="text-left pr-14">End Date</th>
-            <th className="text-left">Action</th>
+        <thead className="bg-skin-theadColor  border border-gray-400 border-opacity-20">
+          <tr className="">
+            <th className="py-4 pl-3 text-md text-left">Task Name</th>
+            <th className="text-left text-md font-bold ">Task Owner</th>
+            <th className="text-left text-md font-bold pr-14">Duration</th>
+            <th className="text-left text-md font-bold pr-14">Start Date</th>
+            <th className="text-left text-md font-bold pr-14">End Date</th>
+            <th className="text-left text-md font-bold ">Action</th>
           </tr>
         </thead>
-        <tbody className="">
+        <tbody className=" text-sm font-medium bg-skin-tbodyColor ">
           {tableData.map((tData) => {
             return (
               <tr
-                className="border text-slate-500 border-slate-300"
+                className=" border border-gray-400 border-opacity-20"
                 key={tData.id}
               >
                 {/* Ist col */}
                 {tData.name !== null && (
                   <td
-                    className={`pl-3 text-black py-4  ${
+                    className={`pl-3 py-4   ${
                       tData.name === "Print Proof Approval" ? "py-4" : ""
                     }${tData.name === "Artwork Approval" ? "py-4" : ""}`}
                     rowSpan={
@@ -119,7 +117,7 @@ const AuditLog = () => {
 
                 {/* 2nd col */}
                 <td
-                  className={`text-slate-500 ${
+                  className={` ${
                     tData.name === "Brief Upload" ||
                     tData.name === "Artwork Upload"
                       ? "py-3"
@@ -174,10 +172,10 @@ const AuditLog = () => {
 
       {/* Buttons container */}
       <div className="flex justify-center fixed left-1/2 bottom-0 gap-3 items-center p-3">
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium ">
+        <button className="bg-gray-700 p-3 py-2  rounded-md tracking-wide  text-white font-medium ">
           Submit
         </button>
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium">
+        <button className="bg-gray-700 p-3 py-2  rounded-md tracking-wide  text-white font-medium">
           Save
         </button>
       </div>

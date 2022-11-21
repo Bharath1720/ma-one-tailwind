@@ -44,7 +44,7 @@ const Tasks = () => {
   return (
     <div className="p-1 pt-3">
       <table className="w-full">
-        <thead className="bg-gray-50  border-b-2 border">
+        <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
           <tr>
             <th className="p-4 text-md font-bold tracking-wide text-left">
               Task Name
@@ -58,20 +58,23 @@ const Tasks = () => {
             <th className="p-4 text-md font-bold tracking-wide text-left"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="">
           {dataSource.map((each) => {
             return (
-              <tr className=" border-b-2 border" key={each.id}>
-                <td className="p-4 text-sm font-semibold tracking-wide text-left flex items-center">
+              <tr
+                className=" border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
+                key={each.id}
+              >
+                <td className="p-4 text-sm font-medium tracking-wide text-left flex items-center">
                   <span>{each.task}</span>
                 </td>
-                <td className="p-4 text-sm font-semibold tracking-wide text-left">
-                  <span className={`bg-[{each.color}]`}> {each.users}</span>
+                <td className="p-4 text-sm font-medium tracking-wide text-left">
+                  <span> {each.users}</span>
                 </td>
-                <td className="p-4 text-sm font-semibold tracking-wide text-left">
+                <td className="p-4 text-sm font-medium tracking-wide text-left">
                   {each.duration}
                 </td>
-                <td className="p-4 text-sm font-semibold tracking-wide text-left">
+                <td className="p-4 text-sm font-medium tracking-wide text-left">
                   Edit
                 </td>
               </tr>
@@ -82,10 +85,10 @@ const Tasks = () => {
 
       {/* Buttons container */}
       <div className="flex justify-center fixed left-1/2 bottom-0 gap-3 items-center p-3">
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium ">
+        <button className="bg-gray-700 px-3 py-2  rounded-md tracking-wide  text-white font-medium ">
           Submit
         </button>
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium">
+        <button className="bg-gray-700 px-3 py-2 rounded-md tracking-wide  text-white font-medium">
           Save
         </button>
       </div>

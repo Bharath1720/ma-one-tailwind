@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { MdNotifications } from "react-icons/md";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
-import { BsSliders } from "react-icons/bs";
+// import { BsSliders } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
 
 import { NavLink } from "react-router-dom";
 
-import { MdOutlineModeEditOutline } from "react-icons/md";
+// import { MdOutlineModeEditOutline } from "react-icons/md";
 
 import Popup from "reactjs-popup";
 import { BsXLg } from "react-icons/bs";
 import UserTableGrid from "../../Tables/UserTableGrid";
 
 const Users = () => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   return (
     <div>
-      <div className="  flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
+      <div className="  flex flex-row justify-between items-center p-4 pl-5 shadow-md ">
         <div className="flex items-center">
           <FiUsers className="text-2xl mr-3" />
+          {/* Breadcrumbs */}
           <nav className="">
             <ul className="flex mt-1 space-x-1">
               <li className="after:content-['>'] pl-2 after:px-2 ">
@@ -55,14 +56,14 @@ const Users = () => {
           trigger={
             <button
               type="button"
-              className="bg-indigo-500 rounded-md p-3 text-sky-50 font-extrabold  "
+              className="bg-gray-500 rounded-md p-3 py-2 text-sky-50 font-extrabold  "
             >
               Add New User
             </button>
           }
         >
           {(close) => (
-            <div className=" bg-gray-100 rounded-lg ring ring-gray-100 w-[500px] m-auto">
+            <div className=" bg-gray-100 rounded-lg ring ring-gray-100  m-auto">
               <div className="">
                 <div className=" flex justify-between p-4  items-center border-b-2  ">
                   <h1 className="text-xl font-semibold">Add New User</h1>

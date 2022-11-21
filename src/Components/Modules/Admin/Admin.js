@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, Outlet } from "react-router-dom";
+// import { Link, Outlet } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
 
@@ -144,10 +144,10 @@ const accountData = [
 const Admin = () => {
   return (
     <section className="">
-      <div className="  flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
+      <div className="  flex flex-row justify-between items-center p-4 pl-5  shadow-md ">
         <div className="flex items-center">
           <BsSliders className="text-2xl mr-3" />
-          <h1 className="text-2xl">Admin Dashboard</h1>
+          <h1 className="text-xl">Admin Dashboard</h1>
         </div>
         <div className="flex">
           <MdNotifications className="text-2xl mr-4" />
@@ -158,9 +158,9 @@ const Admin = () => {
       <div className="overflow-scroll h-full fixed pb-12">
         {/* Team  */}
 
-        <div>
-          <h1 className=" text-2xl ml-5 my-4 font-extrabold">Team</h1>
-          <div className="flex flex-row p-2 ml-8 gap-y-4 ">
+        <div className="">
+          <h1 className=" text-[18px] ml-5 mt-4 font-extrabold ">Team</h1>
+          <div className="flex flex-row p-2 ml-8 -mt-1 ">
             {teamData.map((eachTeam, index) => (
               <NavLink
                 className={({ isActive }) =>
@@ -180,9 +180,9 @@ const Admin = () => {
 
         {/* Workflow */}
 
-        <div className=" flex flex-col flex-1 my-4 flex-wrap ">
-          <h1 className=" text-2xl ml-5 mt-3 font-extrabold">Workflow</h1>
-          <div className=" flex flex-wrap p-3 gap-y-4 ">
+        <div className=" flex flex-col flex-1  flex-wrap  ">
+          <h1 className=" text-[18px] ml-5 mt-3 font-extrabold">Workflow</h1>
+          <div className=" flex flex-wrap p-3 px-0 py-2 gap-y-4  -mt-1 ">
             {workflowData.map((eachTeam, index) => (
               <NavLink
                 // className="w-[44.33%] flex items-center p-3 ml-9 "
@@ -223,14 +223,14 @@ const Admin = () => {
         </div>
       </div> */}
 
-        <div className=" flex flex-col flex-1 flex-wrap ">
-          <h1 className=" text-2xl ml-5 font-extrabold">Master Lists</h1>
-          <div className=" flex flex-wrap p-3 gap-y-4 ">
+        <div className=" flex flex-col flex-1 flex-wrap  ">
+          <h1 className=" text-[18px] ml-5 font-extrabold">Master Lists</h1>
+          <div className=" flex flex-wrap ">
             {masterData.map((eachTeam, index) => (
               <NavLink
                 // className="w-[44%]  flex items-center ml-16 "
                 className={({ isActive }) =>
-                  isActive ? "active-admin-workflow" : "inactive-admin-workflow"
+                  isActive ? "active-admin-master" : "inactive-admin-master"
                 }
                 to={eachTeam.path}
                 key={eachTeam.id}
@@ -254,14 +254,18 @@ const Admin = () => {
         </div>
       </div> */}
 
-        <div className=" flex flex-col flex-1 flex-wrap ">
-          <h1 className=" text-2xl ml-5 font-extrabold">Account</h1>
-          <div className=" flex flex-wrap p-3 gap-y-4">
+        <div className=" flex flex-col flex-1 flex-wrap  ">
+          <h1 className=" text-[18px] ml-5 font-extrabold">Account</h1>
+          <div className=" flex flex-wrap">
             {accountData.map((eachTeam, index) => (
               <NavLink
                 // className="w-[44%]  flex items-center ml-16 "
+                // className={({ isActive }) =>
+                //   isActive ? "active-admin-workflow" : "inactive-admin-workflow"
+                // }
+
                 className={({ isActive }) =>
-                  isActive ? "active-admin-workflow" : "inactive-admin-workflow"
+                  isActive ? "active-admin-master" : "inactive-admin-master"
                 }
                 to={eachTeam.path}
                 key={eachTeam.id}

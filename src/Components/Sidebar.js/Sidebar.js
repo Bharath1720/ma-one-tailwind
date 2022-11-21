@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import { RiInboxArchiveFill } from "react-icons/ri";
 
-import { AiFillLeftCircle } from "react-icons/ai";
+// import { AiFillLeftCircle } from "react-icons/ai";
 
 import { FaImage } from "react-icons/fa";
 
@@ -21,8 +21,8 @@ import { FaUserShield } from "react-icons/fa";
 
 import { FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
 
-import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
+// import { Menu, Transition } from "@headlessui/react";
+// import { Fragment } from "react";
 
 import { BiTable } from "react-icons/bi";
 
@@ -89,15 +89,15 @@ const menuItem = [
 ];
 
 const Sidebar = ({ children }) => {
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
-  const [isSelected, setIsSelected] = useState(false);
+  // const [isSelected, setIsSelected] = useState(false);
 
-  const toggle = () => setOpen(!open);
+  // const toggle = () => setOpen(!open);
 
   // for Themes
 
-  const { theme, toggleTheme } = useContext(AppContext);
+  const { open, toggle, theme, toggleTheme } = useContext(AppContext);
 
   const applyStyles = theme ? "transit" : "not-transit";
 
@@ -122,6 +122,7 @@ const Sidebar = ({ children }) => {
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
+  const applyThemes = theme === false ? "theme-light" : "theme-dark";
 
   return (
     // All the routings goes from here
@@ -179,17 +180,17 @@ const Sidebar = ({ children }) => {
                   </span>
                 </NavLink>
                 {menu.name === "Assets" && (
-                  <div className="hidden group-hover:block absolute -right-32 z-20 top-0 ">
+                  <div className="hidden group-hover:block absolute -right-32  z-20 top-0 ">
                     <NavLink
                       to="/assets/search"
                       // element={<AssetSearch />}
 
                       className={
-                        "bg-gray-100 hover:text-gray-900 visited:text-gray-900 visited:no-underline  text-gray-400  hover:bg-gray-300  flex items-center space-x-2 hover:no-underline  px-6 py-4 text-lg"
+                        "bg-gray-100 hover:text-gray-900 visited:text-gray-900 visited:no-underline  text-gray-400  hover:bg-gray-300  flex items-center space-x-2 hover:no-underline px-6 py-4 text-lg"
                       }
                     >
-                      <BiTable />
-                      <span>Search</span>
+                      <BiTable className="text-2xl" />
+                      <span className="text-base">Search</span>
                     </NavLink>
                     <NavLink
                       to="/assets/browse"
@@ -199,8 +200,8 @@ const Sidebar = ({ children }) => {
                         "bg-gray-100  hover:bg-gray-300 hover:text-gray-900 text-gray-400 flex items-center space-x-2 text-lg hover:no-underline px-6 pr-3 py-4"
                       }
                     >
-                      <BiTable />
-                      <span>Browse</span>
+                      <BiTable className="text-2xl" />
+                      <span className="text-base">Browse</span>
                     </NavLink>
                   </div>
                 )}
@@ -231,7 +232,15 @@ const Sidebar = ({ children }) => {
         <div className={` ${applyStylesToProfile}  `}>
           {/* Themes slider  */}
           <div className="flex justify-between pb-4 ">
-            {open && <h6>{`${toggleTexts}`}</h6>}
+            {open && (
+              <span
+                className={`${
+                  theme === true
+                    ? "text-white text-base font-bold"
+                    : "text-black text-base font-bold "
+                }`}
+              >{`${toggleTexts}`}</span>
+            )}
 
             <div
               className="w-11 h-6 flex items-center bg-gray-300 rounded-full cursor-pointer "
@@ -254,7 +263,7 @@ const Sidebar = ({ children }) => {
             />
             <div className="flex ml-4 flex-col">
               <h1
-                className={`text-xl text-skin-base font-bold ${
+                className={`text-base text-skin-base font-bold ${
                   !open && "hidden"
                 } `}
               >
@@ -280,12 +289,14 @@ const Sidebar = ({ children }) => {
 
             <p>Role: Associate developer</p>
 
-            <p>Age: 24</p>
+            <p>Age: 23</p>
           </div>
         )}
       </div>
 
-      <main className="max-h-screen  w-screen">{children}</main>
+      <main className="max-h-screen  bg-skin-rightSideColor text-skin-base  w-screen">
+        {children}
+      </main>
     </div>
   );
 };

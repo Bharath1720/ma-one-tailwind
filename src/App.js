@@ -42,13 +42,16 @@ import Email from "./Components/Modules/Admin/Workflow/Email";
 
 import Checklists from "./Components/Modules/Admin/Workflow/Checklists";
 
-import FileTypes from "./Components/Modules/Admin/MasterLists/FileTypes";
+import FileTypes from "./Components/Modules/Admin/MasterLists/FileTypesEdit";
 
 import Departments from "./Components/Modules/Admin/MasterLists/Departments";
 
 import GeneralSettins from "./Components/Modules/Admin/Account/GeneralSettins";
 
 import AccountDetails from "./Components/Modules/Admin/Account/AccountDetails";
+
+import FileTypesEdit from "./Components/Modules/Admin/MasterLists/FileTypes";
+import EmailEdit from "./Components/Modules/Admin/Workflow/EmailEdit";
 
 const App = () => {
   const [open, setOpen] = useState(true);
@@ -67,10 +70,13 @@ const App = () => {
   const applyThemes = theme === false ? "theme-light" : "theme-dark";
 
   const [login, setLoggedIn] = useState(false);
+ 
 
   return (
     <>
-      <AppContext.Provider value={{ theme, toggleTheme, setLoggedIn }}>
+      <AppContext.Provider
+        value={{ theme, toggleTheme, open, toggle, setLoggedIn }}
+      >
         <div className={`${applyThemes}`}>
           <Router>
             <Routes>
@@ -136,14 +142,32 @@ const App = () => {
 
                   <Route
                     exact
+                    path="/admin/workflow/email-edit"
+                    element={<EmailEdit />}
+                  />
+
+                  <Route
+                    exact
                     path="/admin/workflow/checklists"
                     element={<Checklists />}
+                  />
+
+                  {/* <Route
+                    exact
+                    path="/admin/master/file-types"
+                    element={<FileTypes />}
+                  /> */}
+
+                  <Route
+                    exact
+                    path="/admin/file-types-edit"
+                    element={<FileTypes />}
                   />
 
                   <Route
                     exact
                     path="/admin/master/file-types"
-                    element={<FileTypes />}
+                    element={<FileTypesEdit />}
                   />
 
                   <Route

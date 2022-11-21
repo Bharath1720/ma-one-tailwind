@@ -7,6 +7,7 @@ module.exports = {
         skin: {
           base: "var(--text-color)",
           indicator: "var(--fill-color-indicator)",
+          requestInfo: "var(--fill-request-info-nav)",
         },
       },
 
@@ -19,6 +20,11 @@ module.exports = {
           fill: "var(--fill-color)",
           indicator: "var(--fill-color-indicator)",
           popup: "var(--var-glass-indicator)",
+          headerColor: "var(--fill-color-header)",
+          rightSideColor: "var(--fill-right-side-color)",
+          theadColor: "var(--fill-thead-color)",
+          tbodyColor: "var(--fill-tbody-color)",
+          adaptivePlaceholder: "var(--fill-adaptive-placeholder)",
         },
       },
 

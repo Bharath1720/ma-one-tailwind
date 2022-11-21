@@ -12,7 +12,7 @@ const Login = ({ children }) => {
   const [toggleIcon, setToggleIcon] = useState(false);
   const [forgetPass, setForgetPass] = useState(false);
 
-  const { theme, toggleTheme, setLoggedIn } = useContext(AppContext);
+  const { setLoggedIn } = useContext(AppContext);
 
   const navigate = useNavigate();
   const refInp = useRef();
@@ -38,7 +38,7 @@ const Login = ({ children }) => {
     setForgetPass(false);
   };
   const showPass = () => {
-    if (refInp.current.type == "password" && refInp.current.value.length >= 1) {
+    if (refInp.current.type === "password" && refInp.current.value.length >= 1) {
       refInp.current.type = "text";
       setToggleIcon(true);
     } else {

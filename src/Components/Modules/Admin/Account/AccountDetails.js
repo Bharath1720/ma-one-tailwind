@@ -1,9 +1,6 @@
-import React from 'react'
-
+import React from "react";
 const AccountDetails = () => {
-  return (
-    <div>AccountDetails</div>
-  )
-}
+  return <div>AccountDetails</div>;
+};
 
-export default AccountDetails
+export default AccountDetails;

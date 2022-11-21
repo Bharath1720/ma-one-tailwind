@@ -43,7 +43,7 @@ const newRequestRoutes = [
 const NewRequest = () => {
   return (
     <section className="">
-      <div className="flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md  ">
+      <div className="flex flex-row justify-between items-center p-4 pl-5 shadow-md  ">
         <div className="flex items-center">
           <BsSliders className="text-2xl mr-3" />
           <h1 className="text-2xl">New Artwork Request</h1>
@@ -53,7 +53,7 @@ const NewRequest = () => {
           <BsFillQuestionCircleFill className="text-2xl" />
         </div>
       </div>
-      <div className="flex border border-b-2 justify-between items-center">
+      <div className="flex  justify-between items-center">
         <nav className="flex items-center  pl-4">
           {newRequestRoutes.map((item, index) => (
             <NavLink
@@ -64,7 +64,7 @@ const NewRequest = () => {
               to={item.path}
               key={index}
             >
-              <div className="font-medium">{item.name}</div>
+              <div className=" text-sm font-medium">{item.name}</div>
             </NavLink>
           ))}
         </nav>
@@ -75,7 +75,7 @@ const NewRequest = () => {
             trigger={
               <button
                 type="button"
-                className="bg-indigo-500  rounded-md p-3 text-sky-50 font-extrabold  mr-3 "
+                className="bg-gray-500  rounded-md p-3 py-2 text-sky-50 font-extrabold  mr-3 "
               >
                 Add New User
               </button>

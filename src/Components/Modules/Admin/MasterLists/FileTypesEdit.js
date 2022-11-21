@@ -1,127 +1,95 @@
 import React from "react";
-
-import { v4 as uuidv4 } from "uuid";
-
+import { Link } from "react-router-dom";
 import { MdNotifications } from "react-icons/md";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
-import { FiUsers } from "react-icons/fi";
-
 import { BiPencil } from "react-icons/bi";
+import { FiUsers } from "react-icons/fi";
 
 import Popup from "reactjs-popup";
 import { BsXLg } from "react-icons/bs";
-
-const checkboxData = [
-  {
-    id: uuidv4(),
-    text: "Marketing",
-  },
-  {
-    id: uuidv4(),
-    text: "Regulatory",
-  },
-  {
-    id: uuidv4(),
-    text: "Packing",
-  },
-  {
-    id: uuidv4(),
-    text: "Quality",
-  },
-  {
-    id: uuidv4(),
-    text: "Legal",
-  },
-  {
-    id: uuidv4(),
-    text: "Supply Chain",
-  },
-];
+import { v4 as uuidv4 } from "uuid";
 
 const tableData = [
   {
     id: uuidv4(),
-    name: "Verify Product name",
-    uname: "Paul Mason",
-    date: "12 Jul 2022",
-    depart: "Marketing",
+    name: "Artwork Files",
+    details: "The artwork file that bill be approved for print",
   },
 
   {
     id: uuidv4(),
-    name: "Check UPC and QR code",
-    uname: "Vivek Garg",
-    date: "18 May 2022",
-    depart: "Marketing",
-    depart2: "Packaging",
+    name: "Print Proof Files",
+    details:
+      "The artwork proof that the print vendor shares for approval before printing",
   },
 
   {
     id: uuidv4(),
-    name: "Check Nutrition Panel Format",
-    uname: "Paul Mason",
-    date: "18 May 2022",
-    depart: "Regulatory",
+    name: "Brief",
+    details: "Instruction and content designer to create the artwork",
   },
 
   {
     id: uuidv4(),
-    name: "Net Content Statement",
-    uname: "Paul Mason",
-    date: "18 May 2022",
-    depart: "Regulatory",
+    name: "Dieline",
+    details:
+      "Also called as Key Line Diagram (KLD) this is typically a CAD file",
+  },
+
+  {
+    id: uuidv4(),
+    name: "Previous Art version",
+    details: "Previos version of the current artwork being created",
+  },
+
+  {
+    id: uuidv4(),
+    name: "3D Files",
+    details: "3d rendering of the artwork in GLTF or GLB format",
   },
 ];
 
-const Checklists = () => {
+const FileTypesEdit = () => {
   return (
     <div>
-      <div className="  flex flex-row justify-between items-center p-4 pl-5  shadow-md ">
+      <div className="flex flex-row justify-between items-center p-4 pl-5 shadow-md ">
         <div className="flex items-center">
           <FiUsers className="text-2xl mr-3" />
-
-          {/* Breadcrumbs */}
           <nav className="">
-            <ul className="flex mt-1 space-x-1">
+            <ul className="flex mt-1 peer space-x-1">
               <li className="after:content-['>'] pl-2 after:px-2 ">
-                <NavLink
+                <Link
                   to="/admin"
                   className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
                 >
                   Admin
-                </NavLink>
+                </Link>
               </li>
-
-              <li>
-                <NavLink
-                  to="/admin/workflow/checklists"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+              <li className="pl-0 after:px-2 ">
+                <Link
+                  to="/admin/master"
+                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
                 >
-                  Workflow
-                </NavLink>
+                  Master Lists
+                </Link>
               </li>
             </ul>
           </nav>
-
-          {/* <h1 className="text-2xl">Admin Checklists </h1> */}
+          {/* <h1 className="text-2xl">Admin Users</h1> */}
         </div>
         <div className="flex">
           <MdNotifications className="text-2xl mr-4" />
           <BsFillQuestionCircleFill className="text-2xl" />
         </div>
       </div>
-
-      {/* Table  */}
-
       <div className="">
-        <div className="flex justify-between py-2 px-5 ">
-          <div className="flex space-x-6 items-baseline">
-            <h2 className="text-[16px]">Checklists</h2>
-            <BiPencil className="text-xl" />
+        <div className="flex justify-between py-5 px-5 ">
+          <div className="flex space-x-6 items-center">
+            <h2 className="text-xl">File Types</h2>
+            <BiPencil className="text-2xl" />
           </div>
           <div>
-            {/* Popup Button */}
+            {/* Pop up Button */}
 
             <Popup
               modal
@@ -137,11 +105,9 @@ const Checklists = () => {
               {(close) => (
                 <div className=" bg-gray-100 rounded-lg ring ring-gray-100  m-auto">
                   <div className="">
-                    {/* Pop up Header  */}
+                    {/* Popup Header  */}
                     <div className=" flex justify-between p-4  items-center border-b-2  ">
-                      <h1 className="text-xl font-semibold">
-                        Add New Checklist
-                      </h1>
+                      <h1 className="text-xl font-semibold">New File Type</h1>
                       {/* <MdOutlineModeEditOutline className="text-2xl" /> */}
                       <BsXLg
                         className="cursor-pointer"
@@ -153,10 +119,7 @@ const Checklists = () => {
 
                     <form className="flex p-3 flex-col space-y-2">
                       <div>
-                        <label
-                          htmlFor="name"
-                          className="text-sm font-extrabold"
-                        >
+                        <label htmlFor="name" className="text-base ">
                           Name
                         </label>
                         <input
@@ -165,28 +128,19 @@ const Checklists = () => {
                           id="name"
                         />
                       </div>
-
                       <div>
-                        <label className="text-sm font-extrabold">
-                          Departments
+                        <label htmlFor="name" className="text-base block mb-2 ">
+                          Description
                         </label>
-
-                        <div className="flex  flex-wrap flex-1 justify-between items-center  p-2 ">
-                          {checkboxData.map((each) => (
-                            <div key={each.id} className="w-1/2 p-1">
-                              <input
-                                type="checkbox"
-                                id={each.text}
-                                className="mr-1"
-                              />
-                              <label htmlFor={each.text}>{each.text}</label>
-                            </div>
-                          ))}
-                        </div>
+                        <textarea
+                          className="rounded-lg"
+                          rows={10}
+                          cols={111}
+                        ></textarea>
                       </div>
                     </form>
                   </div>
-                  {/* Popup Footer */}
+                  {/* Pop up Foter */}
                   <div className="p-3 mt-3 flex justify-end border-t-2 ">
                     <button
                       type="button"
@@ -209,41 +163,31 @@ const Checklists = () => {
           </div>
         </div>
         <div className="p-1 ">
-          <table className="border rounded-lg w-full text-left table-auto">
-            <thead className="bg-skin-theadColor">
+          <table className="border rounded-lg w-full text-left table-auto ">
+            <thead className="bg-gray-50 bg-skin-theadColor">
               <tr>
-                <th className="p-3">CheckList Items</th>
-                <th>Last Edited By</th>
+                <th className="p-3">File Type</th>
+                <th>Description</th>
                 <th>Last Updated By</th>
-                <th>Departments</th>
+                <th>Last Updated On</th>
                 <th></th>
               </tr>
             </thead>
-
             <tbody className="bg-skin-tbodyColor">
               {tableData.map((data) => {
                 return (
-                  <tr className="border" key={data.id}>
+                  <tr className="border-b" key={data.id}>
                     <td className="p-4">{data.name}</td>
-                    <td>{data.uname}</td>
-                    <td>{data.date}</td>
+                    <td>{data.details}</td>
+                    <td>User1</td>
+                    <td>12 Jul 2022</td>
                     <td>
-                      <button className="bg-violet-100 outline-none rounded-full p-2 text-violet-400 font-medium">
-                        {data.depart}
-                      </button>
-                      {data.name === "Check UPC and QR code" && (
-                        <button className="bg-violet-100 ml-3 outline-none rounded-full p-2 text-violet-400 font-medium">
-                          {data.depart2}
-                        </button>
-                      )}
-                    </td>
-                    <td>
-                      <NavLink
+                      <Link
                         to=""
                         className="text-violet-500 hover:no-underline"
                       >
                         Edit
-                      </NavLink>
+                      </Link>
                     </td>
                   </tr>
                 );
@@ -256,4 +200,4 @@ const Checklists = () => {
   );
 };
 
-export default Checklists;
+export default FileTypesEdit;

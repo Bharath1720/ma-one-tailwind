@@ -36,7 +36,7 @@ const Files = () => {
   return (
     <div className="p-1 pt-3">
       <table className="w-full">
-        <thead className="bg-gray-50  border-b-2 border">
+        <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
           <tr>
             <th className="p-3 text-md font-bold tracking-wide text-left">
               Actions
@@ -58,30 +58,33 @@ const Files = () => {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-skin-tbodyColor ">
           {dataSource.map((each) => {
             return (
-              <tr className="bg-gray-50 border-b-2 border" key={each.id}>
-                <td className="p-3 text-sm font-semibold tracking-wide text-left flex items-center">
+              <tr
+                className="border border-gray-400 border-opacity-20"
+                key={each.id}
+              >
+                <td className="p-3 text-sm font-medium tracking-wide text-left flex items-center">
                   <span className="bg-blue-400 text-white p-2 pt-1 text-xs rounded-lg">
                     {each.actions}
                   </span>
 
                   <FaBars className="ml-4 text-xl" />
                 </td>
-                <td className="p-3 text-sm font-semibold tracking-wide text-left">
+                <td className="p-3 text-sm font-medium tracking-wide text-left">
                   {each.filename}
                 </td>
-                <td className="p-3 text-sm font-semibold tracking-wide text-left">
+                <td className="p-3 text-sm font-medium tracking-wide text-left">
                   {each.version}
                 </td>
-                <td className="p-3 text-sm font-semibold tracking-wide text-left">
+                <td className="p-3 text-sm font-medium tracking-wide text-left">
                   {each.file_type}
                 </td>
-                <td className="p-3 text-sm font-semibold tracking-wide text-left">
+                <td className="p-3 text-sm font-medium tracking-wide text-left">
                   {each.added_by}
                 </td>
-                <td className="p-3 text-sm font-semibold tracking-wide text-left">
+                <td className="p-3 text-sm font-medium tracking-wide text-left">
                   {each.added_on}
                 </td>
               </tr>
@@ -92,10 +95,10 @@ const Files = () => {
 
       {/* Buttons container */}
       <div className="flex justify-center fixed left-1/2 bottom-0 gap-3 items-center p-3">
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium ">
+        <button className="bg-gray-700 p-3 py-2 rounded-md tracking-wide  text-white font-medium ">
           Submit
         </button>
-        <button className="bg-gray-700 px-5 py-2 pt-1 rounded-md tracking-wide  text-white font-medium">
+        <button className="bg-gray-700 p-3 py-2 rounded-md tracking-wide  text-white font-medium">
           Save
         </button>
       </div>

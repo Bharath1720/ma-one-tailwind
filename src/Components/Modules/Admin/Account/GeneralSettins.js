@@ -1,7 +1,7 @@
 import React from "react";
 
 const GeneralSettins = () => {
-  return <div>GeneralSettins</div>;
+  return <div>GeneralSettings</div>;
 };
 
 export default GeneralSettins;
