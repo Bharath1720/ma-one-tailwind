@@ -94,7 +94,7 @@ const AuditLog = () => {
           {tableData.map((tData) => {
             return (
               <tr
-                className=" border border-gray-400 border-opacity-20"
+                className=" border  odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
                 key={tData.id}
               >
                 {/* Ist col */}

@@ -8,6 +8,8 @@ module.exports = {
           base: "var(--text-color)",
           indicator: "var(--fill-color-indicator)",
           requestInfo: "var(--fill-request-info-nav)",
+          hoverActive: "var(--fill-hover-active)",
+          hover: "var( --fill-hover)",
         },
       },
 
@@ -25,6 +27,7 @@ module.exports = {
           theadColor: "var(--fill-thead-color)",
           tbodyColor: "var(--fill-tbody-color)",
           adaptivePlaceholder: "var(--fill-adaptive-placeholder)",
+          hoverStatus: "var( --fill-hover-status)",
         },
       },
 

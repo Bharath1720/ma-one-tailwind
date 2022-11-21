@@ -13,7 +13,13 @@ import Popup from "reactjs-popup";
 import { BsXLg } from "react-icons/bs";
 import UserTableGrid from "../../Tables/UserTableGrid";
 
-const Users = () => {
+import { useContext } from "react";
+
+import { AppContext } from "../../../Context";
+
+const Users = ({ children }) => {
+  const { theme } = useContext(AppContext);
+
   // const [showModal, setShowModal] = useState(false);
   return (
     <div>
@@ -26,7 +32,11 @@ const Users = () => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
+
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
                 >
                   Admin
                 </NavLink>
@@ -35,7 +45,10 @@ const Users = () => {
               <li>
                 <NavLink
                   to="/admin/users"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Users
                 </NavLink>

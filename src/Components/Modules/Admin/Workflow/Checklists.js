@@ -12,6 +12,10 @@ import { BiPencil } from "react-icons/bi";
 import Popup from "reactjs-popup";
 import { BsXLg } from "react-icons/bs";
 
+import { useContext } from "react";
+
+import { AppContext } from "../../../../Context";
+
 const checkboxData = [
   {
     id: uuidv4(),
@@ -75,6 +79,7 @@ const tableData = [
 ];
 
 const Checklists = () => {
+  const { theme } = useContext(AppContext);
   return (
     <div>
       <div className="  flex flex-row justify-between items-center p-4 pl-5  shadow-md ">
@@ -87,7 +92,10 @@ const Checklists = () => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -96,7 +104,10 @@ const Checklists = () => {
               <li>
                 <NavLink
                   to="/admin/workflow/checklists"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Workflow
                 </NavLink>
@@ -210,7 +221,7 @@ const Checklists = () => {
         </div>
         <div className="p-1 ">
           <table className="border rounded-lg w-full text-left table-auto">
-            <thead className="bg-skin-theadColor">
+            <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
               <tr>
                 <th className="p-3">CheckList Items</th>
                 <th>Last Edited By</th>
@@ -223,7 +234,10 @@ const Checklists = () => {
             <tbody className="bg-skin-tbodyColor">
               {tableData.map((data) => {
                 return (
-                  <tr className="border" key={data.id}>
+                  <tr
+                    className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
+                    key={data.id}
+                  >
                     <td className="p-4">{data.name}</td>
                     <td>{data.uname}</td>
                     <td>{data.date}</td>

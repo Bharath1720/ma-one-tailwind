@@ -146,7 +146,10 @@ const FormFields = ({ children }) => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -155,7 +158,10 @@ const FormFields = ({ children }) => {
               <li>
                 <NavLink
                   to="/admin/workflow/form-fields"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Form Fields
                 </NavLink>

@@ -18,6 +18,7 @@ import { GrTemplate, GrUserSettings } from "react-icons/gr";
 import { MdManageAccounts } from "react-icons/md";
 
 import { IoMdPeople } from "react-icons/io";
+import { IoSettings } from "react-icons/io5";
 
 import { SiSpringsecurity } from "react-icons/si";
 
@@ -26,6 +27,8 @@ import { MdEmail } from "react-icons/md";
 import { BsCardChecklist } from "react-icons/bs";
 
 import { AiFillFolderOpen } from "react-icons/ai";
+
+import { HiTemplate } from "react-icons/hi";
 
 import AdminCard from "./AdminCard";
 
@@ -61,7 +64,7 @@ const workflowData = [
     path: "/admin/workflow/template",
     heading: "Workfllow Template",
     description: "Build your owm workflow template",
-    icon: <GrTemplate />,
+    icon: <HiTemplate />,
   },
   {
     id: 3,
@@ -130,7 +133,7 @@ const accountData = [
     path: "/admin/account/general-settings",
     heading: "General Settings",
     description: "Manage default settings for all users-timezone,etc.",
-    icon: <GrUserSettings />,
+    icon: <IoSettings />,
   },
   {
     id: 2,
@@ -160,7 +163,7 @@ const Admin = () => {
 
         <div className="">
           <h1 className=" text-[18px] ml-5 mt-4 font-extrabold ">Team</h1>
-          <div className="flex flex-row p-2 ml-8 -mt-1 ">
+          <div className="flex flex-row p-2  ">
             {teamData.map((eachTeam, index) => (
               <NavLink
                 className={({ isActive }) =>

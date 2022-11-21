@@ -7,7 +7,12 @@ import { FiUsers } from "react-icons/fi";
 
 import { NavLink } from "react-router-dom";
 
+import { useContext } from "react";
+
+import { AppContext } from "../../../Context";
+
 const Roles = () => {
+  const { theme } = useContext(AppContext);
   return (
     <div>
       <div className="  flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
@@ -19,7 +24,10 @@ const Roles = () => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -28,7 +36,10 @@ const Roles = () => {
               <li>
                 <NavLink
                   to="/admin/roles"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Roles
                 </NavLink>

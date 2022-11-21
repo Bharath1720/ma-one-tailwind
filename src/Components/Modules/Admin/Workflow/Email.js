@@ -58,7 +58,7 @@ const tableData = [
 ];
 
 const Email = ({ Children }) => {
-  const { open } = useContext(AppContext);
+  const { theme } = useContext(AppContext);
 
   return (
     <div>
@@ -72,7 +72,10 @@ const Email = ({ Children }) => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -81,7 +84,10 @@ const Email = ({ Children }) => {
               <li>
                 <NavLink
                   to="/admin/workflow/email"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Email Templates
                 </NavLink>
@@ -107,7 +113,7 @@ const Email = ({ Children }) => {
         </div>
         <div className="p-1 ">
           <table className="border rounded-lg w-full text-left table-auto">
-            <thead className="bg-skin-theadColor">
+            <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
               <tr>
                 <th className=" p-3 text-md font-bold ">Template Name</th>
                 <th className="text-md font-bold ">Template Description</th>
@@ -116,10 +122,13 @@ const Email = ({ Children }) => {
                 <th></th>
               </tr>
             </thead>
-            <tbody className="bg-skin-tbodyColor">
+            <tbody className="">
               {tableData.map((data) => {
                 return (
-                  <tr className="border" key={data.id}>
+                  <tr
+                    className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
+                    key={data.id}
+                  >
                     <td className=" text-sm font-medium p-4">{data.name}</td>
                     <td className=" text-sm font-medium">{data.description}</td>
                     <td className="text-sm font-medium">{data.lasteditby}</td>

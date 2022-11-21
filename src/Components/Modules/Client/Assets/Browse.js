@@ -137,7 +137,7 @@ const Browse = () => {
   ];
   return (
     <section className="">
-      <div className="flex flex-row  justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
+      <div className="flex flex-row  justify-between items-center p-4 pl-5  shadow-md ">
         <div className="flex items-center ">
           <Dropdown className="mr-2" icon={<BsSliders className="h-36" />}>
             {dropdownMenu.map((item) => (
@@ -157,7 +157,7 @@ const Browse = () => {
 
       {/* Accordations */}
       <div className="flex w-screen fixed">
-        <div className="flex h-screen shrink-0 overflow-auto flex-col w-72">
+        <div className="flex h-screen shrink-0 overflow-auto flex-col w-72 mt-2">
           {filesList.map((eachFile, index) => (
             <>
               <div className="" key={index}>
@@ -165,7 +165,7 @@ const Browse = () => {
                   <>
                     {/* <pre>{JSON.stringify(eachFile)}</pre>
                     console.log(eachFile) */}
-                    <Disclosure.Button className="text-left outline-none transition duration-200  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-2 w-full border border-b-2">
+                    <Disclosure.Button className="text-left outline-none transition duration-200   hover:bg-light-white bg-skin-fill text-skin-base cursor-pointer p-2 w-full border-gray-50 border-opacity-10 border-b-2">
                       {({ open }) => (
                         <div className="flex justify-between items-center">
                           <div className="flex items-center">
@@ -204,7 +204,7 @@ const Browse = () => {
                       )}
                     </Disclosure.Button>
 
-                    <Disclosure.Panel className="px-4 py-2 border-r-0 bg-white overflow-hidden">
+                    <Disclosure.Panel className="px-4 py-2 border border-gray-50 border-opacity-10 border-r-0  overflow-hidden">
                       <div className="p-1 flex space-x-2">
                         <input
                           type="checkbox"

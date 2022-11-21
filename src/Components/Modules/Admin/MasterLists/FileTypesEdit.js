@@ -9,6 +9,10 @@ import Popup from "reactjs-popup";
 import { BsXLg } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
 
+import { useContext } from "react";
+
+import { AppContext } from "../../../../Context";
+
 const tableData = [
   {
     id: uuidv4(),
@@ -50,6 +54,7 @@ const tableData = [
 ];
 
 const FileTypesEdit = () => {
+  const { theme } = useContext(AppContext);
   return (
     <div>
       <div className="flex flex-row justify-between items-center p-4 pl-5 shadow-md ">
@@ -60,7 +65,10 @@ const FileTypesEdit = () => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <Link
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </Link>
@@ -68,7 +76,10 @@ const FileTypesEdit = () => {
               <li className="pl-0 after:px-2 ">
                 <Link
                   to="/admin/master"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Master Lists
                 </Link>
@@ -164,7 +175,7 @@ const FileTypesEdit = () => {
         </div>
         <div className="p-1 ">
           <table className="border rounded-lg w-full text-left table-auto ">
-            <thead className="bg-gray-50 bg-skin-theadColor">
+            <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
               <tr>
                 <th className="p-3">File Type</th>
                 <th>Description</th>
@@ -176,7 +187,10 @@ const FileTypesEdit = () => {
             <tbody className="bg-skin-tbodyColor">
               {tableData.map((data) => {
                 return (
-                  <tr className="border-b" key={data.id}>
+                  <tr
+                    className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
+                    key={data.id}
+                  >
                     <td className="p-4">{data.name}</td>
                     <td>{data.details}</td>
                     <td>User1</td>

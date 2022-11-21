@@ -167,7 +167,7 @@ const Search = () => {
   }
   return (
     <section className="">
-      <div className="flex flex-row justify-between items-center p-4 pl-5 border border-t-0 border-x-0 shadow-md ">
+      <div className="flex flex-row justify-between items-center p-4 pl-5 border border-gray-50 border-opacity-10 border-t-0 border-x-0 shadow-md">
         <div className="flex items-center ">
           <Dropdown
             className="mr-2"
@@ -200,7 +200,7 @@ const Search = () => {
                 <Disclosure className="overflow-auto">
                   {({ open }) => (
                     <>
-                      <Disclosure.Button className="text-left outline-none border  hover:bg-gray-300 bg-gray-100 text-gray-500 cursor-pointer p-2 w-full">
+                      <Disclosure.Button className="text-left outline-none border border-gray-50 border-opacity-10  hover:bg-light-white bg-skin-fill text-skin-base  cursor-pointer p-2 w-full">
                         <div className="flex justify-between items-center">
                           <div className="flex items-center">
                             <p className="text-base ml-2">{eachFile.name}</p>
@@ -239,7 +239,7 @@ const Search = () => {
                       >
                         <Disclosure.Panel
                           static
-                          className="px-4 bg-white overflow-hidden border"
+                          className="px-4 border border-gray-50 border-opacity-10 overflow-hidden"
                         >
                           {fileSubList.map((edata, index) => (
                             <div>
@@ -278,7 +278,7 @@ const Search = () => {
                                 />
                                 <label
                                   htmlFor={edata.Nums + indexss}
-                                  className=""
+                                  className="text-skin-basex"
                                 >
                                   {edata.type}
                                 </label>

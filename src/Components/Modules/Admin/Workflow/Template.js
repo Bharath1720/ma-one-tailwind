@@ -6,6 +6,9 @@ import { FiUsers } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 
 import { BiPencil } from "react-icons/bi";
+import { useContext } from "react";
+
+import { AppContext } from "../../../../Context";
 
 const tableData = [
   {
@@ -35,7 +38,7 @@ const tableData = [
     button2: "",
     buttonact2: "",
     buttongoes2: "",
-    status: "Pending with {users} for activity",
+    status: "Pending with 10  for activity",
   },
   {
     id: uuidv4(),
@@ -49,7 +52,7 @@ const tableData = [
     button2: "",
     buttonact2: "",
     buttongoes2: "",
-    status: "Pending with {users} for activity",
+    status: "Pending with 23 for activity",
   },
   {
     id: uuidv4(),
@@ -63,7 +66,7 @@ const tableData = [
     button2: "",
     buttonact2: "",
     buttongoes2: "",
-    status: "Pending with {users} for activity",
+    status: "Pending with 8 for activity",
   },
   {
     id: uuidv4(),
@@ -78,7 +81,7 @@ const tableData = [
     button2: "Reject",
     buttonact2: "Artwork rejected",
     buttongoes2: "Artwork upload",
-    status: "Pending with {users} for activity",
+    status: "Pending with 2 for activity",
   },
   {
     id: uuidv4(),
@@ -92,7 +95,7 @@ const tableData = [
     button2: "",
     buttonact2: "",
     buttongoes2: "",
-    status: "Pending with {users} for activity",
+    status: "Pending with 87 for activity",
   },
   {
     id: uuidv4(),
@@ -107,7 +110,7 @@ const tableData = [
     button2: "Reject",
     buttonact2: "Proof rejected",
     buttongoes2: "",
-    status: "Pending with {users} for activity",
+    status: "Pending with 82 for activity",
   },
   {
     id: uuidv4(),
@@ -125,6 +128,7 @@ const tableData = [
 ];
 
 const Template = () => {
+  const { theme } = useContext(AppContext);
   return (
     <div>
       <div className="  flex flex-row justify-between items-center p-4 pl-5 shadow-md ">
@@ -138,7 +142,10 @@ const Template = () => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -147,7 +154,10 @@ const Template = () => {
               <li>
                 <NavLink
                   to="/admin/workflow/template"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
                 >
                   Workflow Templates
                 </NavLink>
@@ -171,14 +181,15 @@ const Template = () => {
             <BiPencil className="text-xl" />
           </div>
           <div>
-            <button className="text-white bg-violet-500 rounded-md p-3 ">
+            {/*Pop Up */}
+            {/* <button className="text-white bg-violet-500 rounded-md p-3 ">
               Add CheckList
-            </button>
+            </button> */}
           </div>
         </div>
         <div>
-          <table className="border rounded-lg w-full text-left table-auto">
-            <thead className="bg-skin-theadColor">
+          <table className="rounded-lg w-full text-left table-auto">
+            <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
               {tableData.map((data) => {
                 return (
                   <>
@@ -208,9 +219,9 @@ const Template = () => {
                 return (
                   <>
                     {data.hAname !== "Activity Name" && (
-                      <tr className="border">
+                      <tr className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20">
                         <td className=" p-4 ">{data.aname}</td>
-                        <td className="flex mt-2">
+                        <td className="flex mt-4 ">
                           {data.uname && (
                             <button
                               className={` ${
@@ -223,13 +234,13 @@ const Template = () => {
                                 data.uname === "Users6"
                                   ? "bg-red-200 text-red-400"
                                   : "text-violet-400 bg-violet-100"
-                              } outline-none rounded-full p-2 text-sm  font-medium`}
+                              } outline-none rounded-full px-2 py-1 text-xs  font-medium`}
                             >
                               {data.uname}
                             </button>
                           )}
                           {data.uname2 && (
-                            <button className="bg-violet-100 ml-1 outline-none rounded-full p-2 text-violet-400 font-medium">
+                            <button className="bg-violet-100 ml-1 outline-none rounded-full px-2 py-1 text-xs  text-violet-400 font-medium">
                               {data.uname2}
                             </button>
                           )}

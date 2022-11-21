@@ -35,7 +35,7 @@ const tableData = [
 ];
 
 const Security = ({ children }) => {
-  const { open } = useContext(AppContext);
+  const { open, theme } = useContext(AppContext);
 
   return (
     <div>
@@ -51,7 +51,10 @@ const Security = ({ children }) => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -60,7 +63,10 @@ const Security = ({ children }) => {
               <li>
                 <NavLink
                   to="/admin/workflow/security"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Security
                 </NavLink>
@@ -120,7 +126,7 @@ const Security = ({ children }) => {
 
                   {/* Usernames Table  */}
                   <table className="border mt-3 w-3/4 mb-16 rounded-lg text-left table-auto">
-                    <tr className="bg-skin-theadColor">
+                    <tr className="bg-skin-theadColor border border-gray-400 border-opacity-20">
                       <th className="pl-4 text-[14px] ">User Names</th>
                       <th>
                         <button className="text-white bg-gray-500 rounded-md my-2 mx-2 p-2 ">
@@ -131,7 +137,7 @@ const Security = ({ children }) => {
                     {tableData.map((data) => {
                       return (
                         <tr
-                          className="border-b bg-skin-tbodyColor"
+                          className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
                           key={data.id}
                         >
                           <td className="p-4">{data.name}</td>
@@ -141,10 +147,10 @@ const Security = ({ children }) => {
                         </tr>
                       );
                     })}
-                    <tr>
+                    <tr className="border border-gray-400 border-opacity-20">
                       <select
                         name=""
-                        className="m-4 p-2 border-2 outline-none bg-skin-theadColor"
+                        className="m-4 p-2 border-2 outline-none bg-skin-theadColor  border-gray-400 border-opacity-20"
                         id=""
                       >
                         {tableData.map((data) => {
@@ -164,7 +170,7 @@ const Security = ({ children }) => {
                     the following views
                   </p>
                   <table className="border mt-3 w-2/3 rounded-lg   text-left table-auto">
-                    <tr className="bg-gray-50 bg-skin-theadColor">
+                    <tr className="bg-skin-theadColor border border-gray-400 border-opacity-20">
                       <th className="pl-4">Views</th>
                       <th>
                         <button className="text-white bg-gray-500 rounded-md my-2 mx-2 p-2 ">
@@ -173,17 +179,17 @@ const Security = ({ children }) => {
                       </th>
                     </tr>
 
-                    <tr className="border-b bg-skin-tbodyColor">
+                    <tr className="border odd:bg-skin-tbodyColor even:bg-skin-tbodyColor border-gray-400 border-opacity-20">
                       <td className="p-4 ">Inbox</td>
                       <td>
                         <MdOutlineDeleteForever className="text-red-500 ml-4 text-2xl" />
                       </td>
                     </tr>
 
-                    <tr>
+                    <tr className="border border-gray-400 border-opacity-20">
                       <select
                         name=""
-                        className="m-4 p-2 border-2 outline-none bg-skin-theadColor"
+                        className="m-4 p-2 border-2 outline-none bg-skin-theadColor  border-gray-400 border-opacity-20"
                         id=""
                       >
                         <option value="">Requests 1 Participated</option>;

@@ -39,7 +39,7 @@ const inputData = [
   },
 ];
 const EmailEdit = ({ children }) => {
-  const { open } = useContext(AppContext);
+  const { open, theme } = useContext(AppContext);
 
   return (
     <div>
@@ -91,7 +91,11 @@ const EmailEdit = ({ children }) => {
         <div>
           <form action="javascript:void(0);" className="space-y-9">
             {/* Description */}
-            <div className="border flex">
+            <div
+              className={`border border-slate-300 ${
+                theme === true ? " border-opacity-20" : "border-opacity-100"
+              } flex`}
+            >
               <div className="flex flex-col p-3 w-1/2">
                 <label htmlFor="" className="mb-1">
                   Description
@@ -102,7 +106,9 @@ const EmailEdit = ({ children }) => {
                   id=""
                   cols="20"
                   rows="4"
-                  className="outline-none bg-skin-rightSideColor p-2 border border-slate-300 rounded-md"
+                  className={`outline-none bg-skin-rightSideColor p-2 border border-slate-300 ${
+                    theme === true ? " border-opacity-20" : "border-opacity-100"
+                  } rounded-md`}
                 ></textarea>
               </div>
               <div className="flex justify-center flex-col w-1/2 p-2">
@@ -112,12 +118,18 @@ const EmailEdit = ({ children }) => {
                 <input
                   type="text"
                   placeholder="exaple.email@gmail.com"
-                  className="outline-none -2 p-3 border bg-skin-rightSideColor border-slate-300 rounded-md"
+                  className={`outline-none -2 p-3 border border-slate-300 ${
+                    theme === true ? " border-opacity-20" : "border-opacity-100"
+                  } bg-skin-rightSideColor  rounded-md`}
                 />
               </div>
             </div>
             {/* Header */}
-            <div className="flex border flex-col">
+            <div
+              className={`flex border border-slate-300 ${
+                theme === true ? " border-opacity-20" : "border-opacity-100"
+              } flex-col`}
+            >
               <h4 className="text-center my-2 text-[16px] ">Header</h4>
               <div className="flex flex-wrap">
                 {inputData.map((data) => {
@@ -133,7 +145,11 @@ const EmailEdit = ({ children }) => {
                       </label>
                       <input
                         type="text"
-                        className="outline-none  p-3  bg-skin-rightSideColor border border-slate-300  rounded-md"
+                        className={`outline-none  p-3  bg-skin-rightSideColor border border-slate-300 ${
+                          theme === true
+                            ? " border-opacity-20"
+                            : "border-opacity-100"
+                        }  rounded-md`}
                         placeholder="example.email@gmail.com"
                       />
                     </div>
@@ -142,7 +158,11 @@ const EmailEdit = ({ children }) => {
               </div>
             </div>
             {/* Body */}
-            <div className="flex border flex-col">
+            <div
+              className={`flex  border border-slate-300 ${
+                theme === true ? " border-opacity-20" : "border-opacity-100"
+              } flex-col`}
+            >
               <h4 className="text-center my-1 text-[16px] ">Body</h4>
               <div className="flex flex-col p-3 w-full">
                 <label htmlFor="" className="mb-1">
@@ -154,12 +174,18 @@ const EmailEdit = ({ children }) => {
                   id=""
                   cols="20"
                   rows="4"
-                  className="outline-none bg-skin-rightSideColor  border border-slate-300  p-2  rounded-md"
+                  className={`outline-none bg-skin-rightSideColor  border border-slate-300 ${
+                    theme === true ? " border-opacity-20" : "border-opacity-100"
+                  }  p-2  rounded-m`}
                 ></textarea>
               </div>
               {/* Table  */}
               <div>
-                <table className="border text-left table-auto ml-4 w-2/4">
+                <table
+                  className={`border border-slate-300 ${
+                    theme === true ? " border-opacity-20" : "border-opacity-100"
+                  } text-left table-auto ml-4 w-2/4`}
+                >
                   <tr className="bg-gray-50 bg-skin-theadColor ">
                     <th className="pl-4">Field Name</th>
                     <th className="pr-12">Field Value</th>
@@ -182,7 +208,11 @@ const EmailEdit = ({ children }) => {
                   <tr>
                     <select
                       name=""
-                      className="m-4 p-2 bg-skin-theadColor border border-slate-300  rounded-md outline-none"
+                      className={`m-4 p-2 bg-skin-theadColor border border-slate-300 ${
+                        theme === true
+                          ? " border-opacity-20"
+                          : "border-opacity-100"
+                      } rounded-md outline-none`}
                       id=""
                     >
                       <option value="">Category</option>
@@ -203,7 +233,9 @@ const EmailEdit = ({ children }) => {
                   id=""
                   cols="20"
                   rows="4"
-                  className="outline-none p-2 border bg-skin-rightSideColor border-slate-300  rounded-md"
+                  className={`outline-none p-2 border bg-skin-rightSideColor ${
+                    theme === true ? " border-opacity-20" : "border-opacity-100"
+                  } border-slate-300  rounded-md`}
                 ></textarea>
               </div>
               {/* button */}

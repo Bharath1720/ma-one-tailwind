@@ -62,11 +62,11 @@ const Files = () => {
           {dataSource.map((each) => {
             return (
               <tr
-                className="border border-gray-400 border-opacity-20"
+                className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
                 key={each.id}
               >
                 <td className="p-3 text-sm font-medium tracking-wide text-left flex items-center">
-                  <span className="bg-blue-400 text-white p-2 pt-1 text-xs rounded-lg">
+                  <span className="bg-gray-400 text-white p-2 text-xs rounded-lg">
                     {each.actions}
                   </span>
 

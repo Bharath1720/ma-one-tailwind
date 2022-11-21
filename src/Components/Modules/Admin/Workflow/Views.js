@@ -8,6 +8,9 @@ import { BiPencil } from "react-icons/bi";
 import Popup from "reactjs-popup";
 import { BsXLg } from "react-icons/bs";
 import { v4 as uuidv4 } from "uuid";
+import { useContext } from "react";
+
+import { AppContext } from "../../../../Context";
 
 const tableData = [
   {
@@ -69,6 +72,7 @@ const tableData = [
 ];
 
 const Views = () => {
+  const { theme } = useContext(AppContext);
   return (
     <div>
       <div className="  flex flex-row justify-between items-center p-4 pl-5  shadow-md ">
@@ -81,7 +85,10 @@ const Views = () => {
               <li className="after:content-['>'] pl-2 after:px-2 ">
                 <NavLink
                   to="/admin"
-                  className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  // className="text-slate-500 hover:no-underline hover:text-slate-900  font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Admin
                 </NavLink>
@@ -90,7 +97,10 @@ const Views = () => {
               <li>
                 <NavLink
                   to="/admin/workflow/views"
-                  className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  // className=" text-slate-500 hover:no-underline hover:text-slate-900 font-bold"
+                  className={
+                    theme === true ? "active-admin-user" : "inactive-admin-user"
+                  }
                 >
                   Views
                 </NavLink>
@@ -115,7 +125,7 @@ const Views = () => {
         </div>
         <div className="p-1">
           <table className="border rounded-lg w-full text-left">
-            <thead className="bg-skin-theadColor">
+            <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
               <tr>
                 <th className="p-3 text-md font-bold tracking-wide ">
                   View Name
@@ -129,7 +139,10 @@ const Views = () => {
             <tbody className="bg-skin-tbodyColor">
               {tableData.map((data) => {
                 return (
-                  <tr className="border" key={data.id}>
+                  <tr
+                    className="border odd:bg-skin-tbodyColor even:bg-skin-theadColor border-gray-400 border-opacity-20"
+                    key={data.id}
+                  >
                     <td className="p-4">{data.name}</td>
                     <td className="">{data.description}</td>
                     <td>{data.lastEditBy}</td>

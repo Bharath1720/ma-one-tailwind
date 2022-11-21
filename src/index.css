@@ -27,11 +27,14 @@ input[type="date"]:focus ~ .input-text {
     --fill-glass-indicator: rgba(228 228 228 / 15%);
     --fill-right-side-color: rgb(41, 49, 59);
     --fill-request-info-nav: rgb(45, 45, 45);
-    --fill-thead-color: rgb(34, 39, 46);
-    --fill-tbody-color: rgb(52, 58, 64);
+    --fill-thead-color: rgb(49, 57, 67);
+    --fill-tbody-color: rgb(52, 61, 72);
     --fill-adaptive-placeholder: rgba(42, 39, 49);
     --fill-requestNav: border-b-slate-400;
     --fill-requestNavName: text-slate-500;
+    --fill-hover-active: white;
+    --fill-hover: white;
+    --fill-hover-status: rgb(255, 255, 255, 0.17);
   }
 
   .theme-light {
@@ -44,6 +47,9 @@ input[type="date"]:focus ~ .input-text {
     --fill-right-side-color: #ffffff;
     --fill-color-indicator: #000;
     --fill-glass-indicator: rgba(228 228 228 / 15%);
+    --fill-hover-active: black;
+    --fill-hover: black;
+    --fill-hover-status: rgb(243, 244, 246);
     /* --hover-indicator: ; */
   }
 }
@@ -79,11 +85,11 @@ export const darkTheme = {
 
 @layer components {
   .active-navbar {
-    @apply text-slate-600  text-skin-base  text-sm font-extrabold  flex items-center gap-x-6 cursor-pointer p-3 pt-6 pb-3 border border-x-0  border-t-0 border-y-4  border-slate-600 visited:text-black hover:no-underline visited:no-underline focus:no-underline mr-3;
+    @apply text-slate-600  text-skin-base  text-sm font-extrabold  flex items-center gap-x-6 cursor-pointer p-3 pt-6 pb-3 border border-x-0  border-t-0 border-y-4  border-slate-600 visited:text-skin-hoverActive hover:no-underline visited:no-underline focus:no-underline mr-3;
   }
 
   .inactive-navbar {
-    @apply text-slate-600 text-skin-base mt-2 text-sm flex items-center gap-x-6 cursor-pointer p-3 hover:bg-light-white rounded-md hover:no-underline hover:text-black mr-3;
+    @apply text-slate-600 text-skin-base mt-2 text-sm flex items-center gap-x-6 cursor-pointer p-3 rounded-md hover:no-underline hover:text-skin-hover mr-3;
   }
 }
 
@@ -130,6 +136,48 @@ export const darkTheme = {
 
 @layer components {
   .active-admin-dashboard {
+    @apply text-slate-600  text-sm font-[1100]  flex items-center gap-x-4 cursor-pointer p-2 odd:pl-3 even:pl-2 pb-3 border border-x-0  border-t-0 border-y-4  border-slate-600 visited:text-black hover:no-underline visited:no-underline focus:no-underline mr-4 w-[44.33%] odd:ml-8 even:ml-7;
+  }
+
+  .inactive-admin-dashboard {
+    @apply text-slate-600 mt-2 text-sm flex items-center gap-x-4 cursor-pointer p-2 odd:pl-3 even:pl-2 pb-3 hover:bg-skin-hoverStatus hover:no-underline hover:text-black w-[44.33%] mr-4 odd:ml-8 even:ml-7;
+  }
+}
+
+@layer components {
+  .active-admin-workflow {
+    @apply text-slate-600 text-sm font-[1100] flex items-center gap-x-4 cursor-pointer  visited:text-black hover:no-underline visited:no-underline focus:no-underline w-[44.33%] border-2 p-3 ml-9;
+  }
+
+  .inactive-admin-workflow {
+    @apply text-slate-600 text-sm font-[1100]  flex items-center gap-x-4 cursor-pointer hover:bg-skin-hoverStatus hover:text-black hover:no-underline visited:no-underline focus:no-underline w-[44.33%] p-3 ml-9;
+  }
+
+  .active-admin-master {
+    @apply text-slate-600 text-sm font-[1100]  flex items-center gap-x-4 cursor-pointer w-[44.33%] even:pr-12 even:pl-3  odd:px-3 hover:text-black hover:no-underline visited:no-underline focus:no-underline  p-1 ml-9  my-1 mb-2;
+  }
+
+  .inactive-admin-master {
+    @apply text-slate-600 text-sm font-[1100]  flex items-center gap-x-4 cursor-pointer hover:bg-skin-hoverStatus w-[44.33%] even:pr-12 even:pl-3 odd:px-3 hover:text-black hover:no-underline visited:no-underline focus:no-underline  p-1 ml-9 my-1 mb-2;
+  }
+}
+
+/* Admin Header Stylings  */
+
+@layer components {
+  .active-admin-user {
+    @apply hover:no-underline  text-gray-400 hover:text-white   font-bold;
+  }
+
+  .inactive-admin-user {
+    @apply hover:no-underline text-slate-500 hover:text-slate-900 font-bold;
+  }
+}
+
+/* Old stylings */
+
+/* @layer components {
+  .active-admin-dashboard {
     @apply text-slate-600  text-sm font-[1100]  flex items-center gap-x-14 cursor-pointer p-2 pb-0 border border-x-0  border-t-0 border-y-4  border-slate-600 visited:text-black hover:no-underline visited:no-underline focus:no-underline mx-2 w-1/2 ml-3;
   }
 
@@ -154,4 +202,4 @@ export const darkTheme = {
   .inactive-admin-master {
     @apply text-slate-600 text-sm font-[1100]  flex cursor-pointer hover:bg-light-white w-1/2 even:px-4 odd:px-12 hover:text-black hover:no-underline visited:no-underline focus:no-underline  my-3 mb-2;
   }
-}
+} */
