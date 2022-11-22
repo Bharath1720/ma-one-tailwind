@@ -178,7 +178,7 @@ const Sidebar = ({ children }) => {
                   >
                     {menu.name}
                   </span>
-                </NavLink>
+                
                 {menu.name === "Assets" && (
                   <div className="hidden group-hover:block absolute -right-32  z-20 top-0 ">
                     <NavLink
@@ -205,6 +205,7 @@ const Sidebar = ({ children }) => {
                     </NavLink>
                   </div>
                 )}
+                </NavLink>
               </div>
             );
           })}

@@ -242,11 +242,11 @@ const Checklists = () => {
                     <td>{data.uname}</td>
                     <td>{data.date}</td>
                     <td>
-                      <button className="bg-violet-100 outline-none rounded-full p-2 text-violet-400 font-medium">
+                      <button className="bg-violet-100 outline-none rounded-full  px-2 py-2 text-xs   text-violet-400 font-medium">
                         {data.depart}
                       </button>
                       {data.name === "Check UPC and QR code" && (
-                        <button className="bg-violet-100 ml-3 outline-none rounded-full p-2 text-violet-400 font-medium">
+                        <button className="bg-violet-100 ml-3 outline-none rounded-full  px-2 py-2 text-xs   text-violet-400 font-medium">
                           {data.depart2}
                         </button>
                       )}
