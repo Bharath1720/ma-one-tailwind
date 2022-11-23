@@ -35,6 +35,7 @@ input[type="date"]:focus ~ .input-text {
     --fill-hover-active: white;
     --fill-hover: white;
     --fill-hover-status: rgb(255, 255, 255, 0.17);
+    --fill-editBtn-color: rgb(0, 224, 255, 1);
   }
 
   .theme-light {
@@ -113,11 +114,11 @@ export const darkTheme = {
 
 @layer components {
   .active-container-items {
-    @apply mt-36;
+    @apply mt-28;
   }
 
   .inactive-container-items {
-    @apply mt-44;
+    @apply mt-36;
   }
 }
 
@@ -166,11 +167,11 @@ export const darkTheme = {
 
 @layer components {
   .active-admin-user {
-    @apply hover:no-underline  text-gray-400 hover:text-white   font-bold;
+    @apply hover:no-underline  text-skin-base hover:text-white   font-bold;
   }
 
   .inactive-admin-user {
-    @apply hover:no-underline text-slate-500 hover:text-slate-900 font-bold;
+    @apply hover:no-underline text-skin-base hover:text-slate-900 font-bold;
   }
 }
 

@@ -53,6 +53,8 @@ import AccountDetails from "./Components/Modules/Admin/Account/AccountDetails";
 import FileTypesEdit from "./Components/Modules/Admin/MasterLists/FileTypes";
 import EmailEdit from "./Components/Modules/Admin/Workflow/EmailEdit";
 
+import UserProfile from "./Components/Sidebar.js/UserProfile";
+
 const App = () => {
   const [open, setOpen] = useState(true);
 
@@ -70,7 +72,6 @@ const App = () => {
   const applyThemes = theme === false ? "theme-light" : "theme-dark";
 
   const [login, setLoggedIn] = useState(false);
- 
 
   return (
     <>
@@ -187,6 +188,8 @@ const App = () => {
                     path="/admin/account/account-details"
                     element={<AccountDetails />}
                   />
+
+                  <Route exact path="/user-profile" element={<UserProfile />} />
                 </Routes>
               </Sidebar>
             )}

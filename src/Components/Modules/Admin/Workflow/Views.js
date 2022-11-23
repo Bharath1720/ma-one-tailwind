@@ -151,7 +151,10 @@ const Views = () => {
                       <Popup
                         modal
                         trigger={
-                          <button type="button" className="text-indigo-500 ">
+                          <button
+                            type="button"
+                            className="text-skin-ediBtn hover:no-underline hover:text-skin-ediBtn"
+                          >
                             Edit
                           </button>
                         }

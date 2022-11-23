@@ -258,7 +258,7 @@ const Template = () => {
                           <td>
                             <NavLink
                               to=""
-                              className="text-violet-500 hover:no-underline"
+                              className="text-skin-ediBtn hover:no-underline hover:text-skin-ediBtn"
                             >
                               Edit
                             </NavLink>

@@ -59,7 +59,12 @@ const FileTypes = () => {
                 <td>User1</td>
                 <td>12 Jul 2022</td>
                 <td>
-                  <NavLink to="/admin/file-types-edit">Edit</NavLink>
+                  <NavLink
+                    to="/admin/file-types-edit"
+                    className="text-skin-ediBtn hover:no-underline hover:text-skin-ediBtn"
+                  >
+                    Edit
+                  </NavLink>
                 </td>
               </tr>
             </tbody>

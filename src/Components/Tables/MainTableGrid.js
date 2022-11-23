@@ -73,7 +73,7 @@ const columns = [
   { name: "email", header: "Company Type", defaultFlex: 1 },
 ];
 
-const gridStyle = { minHeight: 620 };
+const gridStyle = { minHeight: 618 };
 
 const loadData = ({ skip, limit, sortInfo, groupBy, filterValue }) => {
   return fetch(

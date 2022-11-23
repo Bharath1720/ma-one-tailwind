@@ -107,7 +107,7 @@ const Inbox = ({ children }) => {
         </div>
       </div>
 
-      <div className="h-16 flex items-center  bg-skin-rightSideColor ">
+      <div className="h-16 flex items-center mt-2  bg-skin-rightSideColor ">
         {filterButtons.map((btn) => (
           <>
             {/* <ToolTip text={btn.text}> */}

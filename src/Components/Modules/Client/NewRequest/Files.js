@@ -38,7 +38,7 @@ const Files = () => {
       <table className="w-full">
         <thead className="bg-skin-theadColor border border-gray-400 border-opacity-20">
           <tr>
-            <th className="p-3 text-md font-bold tracking-wide text-left">
+            <th className="p-4 text-md font-bold tracking-wide text-left">
               Actions
             </th>
             <th className="p-3 text-md font-bold tracking-wide text-left">
@@ -66,7 +66,7 @@ const Files = () => {
                 key={each.id}
               >
                 <td className="p-3 text-sm font-medium tracking-wide text-left flex items-center">
-                  <span className="bg-gray-400 text-white p-2 text-xs rounded-lg">
+                  <span className="bg-gray-400 text-black p-2 text-xs rounded-lg">
                     {each.actions}
                   </span>
 

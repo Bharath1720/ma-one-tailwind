@@ -150,7 +150,7 @@ const Admin = () => {
       <div className="  flex flex-row justify-between items-center p-4 pl-5  shadow-md ">
         <div className="flex items-center">
           <BsSliders className="text-2xl mr-3" />
-          <h1 className="text-xl">Admin Dashboard</h1>
+          <h1 className="text-2xl">Admin Dashboard</h1>
         </div>
         <div className="flex">
           <MdNotifications className="text-2xl mr-4" />

@@ -10,6 +10,7 @@ module.exports = {
           requestInfo: "var(--fill-request-info-nav)",
           hoverActive: "var(--fill-hover-active)",
           hover: "var( --fill-hover)",
+          ediBtn: "var(--fill-editBtn-color)",
         },
       },
 

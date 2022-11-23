@@ -136,7 +136,7 @@ const Sidebar = ({ children }) => {
         <img
           src="https://raw.githubusercontent.com/Sridhar-C-25/sidebar_reactTailwind/main/src/assets/control.png"
           alt=""
-          className={`absolute cursor-pointer -right-3 rounded-sm top-6 text-sm h-7 ${
+          className={`absolute cursor-pointer -right-3 rounded-sm top-5 text-sm h-7 ${
             !open && "rotate-180"
           }`}
           onClick={toggle}
@@ -178,33 +178,33 @@ const Sidebar = ({ children }) => {
                   >
                     {menu.name}
                   </span>
-                
-                {menu.name === "Assets" && (
-                  <div className="hidden group-hover:block absolute -right-32  z-20 top-0 ">
-                    <NavLink
-                      to="/assets/search"
-                      // element={<AssetSearch />}
 
-                      className={
-                        "bg-gray-100 hover:text-gray-900 visited:text-gray-900 visited:no-underline  text-gray-400  hover:bg-gray-300  flex items-center space-x-2 hover:no-underline px-6 py-4 text-lg"
-                      }
-                    >
-                      <BiTable className="text-2xl" />
-                      <span className="text-base">Search</span>
-                    </NavLink>
-                    <NavLink
-                      to="/assets/browse"
-                      // element={<AssetBrowse />}
+                  {menu.name === "Assets" && (
+                    <div className="hidden group-hover:block absolute -right-32  z-20 top-0 ">
+                      <NavLink
+                        to="/assets/search"
+                        // element={<AssetSearch />}
 
-                      className={
-                        "bg-gray-100  hover:bg-gray-300 hover:text-gray-900 text-gray-400 flex items-center space-x-2 text-lg hover:no-underline px-6 pr-3 py-4"
-                      }
-                    >
-                      <BiTable className="text-2xl" />
-                      <span className="text-base">Browse</span>
-                    </NavLink>
-                  </div>
-                )}
+                        className={
+                          "bg-gray-100 hover:text-gray-900 visited:text-gray-900 visited:no-underline  text-gray-400  hover:bg-gray-300  flex items-center space-x-2 hover:no-underline px-6 py-4 text-lg"
+                        }
+                      >
+                        <BiTable className="text-2xl" />
+                        <span className="text-base">Search</span>
+                      </NavLink>
+                      <NavLink
+                        to="/assets/browse"
+                        // element={<AssetBrowse />}
+
+                        className={
+                          "bg-gray-100  hover:bg-gray-300 hover:text-gray-900 text-gray-400 flex items-center space-x-2 text-lg hover:no-underline px-6 pr-3 py-4"
+                        }
+                      >
+                        <BiTable className="text-2xl" />
+                        <span className="text-base">Browse</span>
+                      </NavLink>
+                    </div>
+                  )}
                 </NavLink>
               </div>
             );
@@ -256,7 +256,15 @@ const Sidebar = ({ children }) => {
 
           {/* Profile details container */}
 
-          <div className=" flex mb-6  items-center  ">
+          <NavLink
+            to="/user-profile"
+            // className=" flex mb-6  items-center border border-indigo-600 "
+            className={({ isActive }) =>
+              isActive
+                ? "active-state flex mb-6  items-center  "
+                : "inactive-state flex mb-6  items-center"
+            }
+          >
             <img
               className={open ? "profile-lg" : "profile-sm"}
               src="https://assets.ccbp.in/frontend/react-js/esther-howard-img.png"
@@ -278,21 +286,8 @@ const Sidebar = ({ children }) => {
                 View Profile
               </span>
             </div>
-            <IoSettingsSharp
-              onClick={toggleSettings}
-              className="text-2xl ml-12 cursor-pointer"
-            />
-          </div>
+          </NavLink>
         </div>
-        {settings && (
-          <div className="absolute bg-skin-popup border  rounded-lg w-full bottom-28 px-3 left-0">
-            <h4>Bharath</h4>
-
-            <p>Role: Associate developer</p>
-
-            <p>Age: 23</p>
-          </div>
-        )}
       </div>
 
       <main className="max-h-screen  bg-skin-rightSideColor text-skin-base  w-screen">
