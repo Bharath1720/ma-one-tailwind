@@ -118,8 +118,8 @@ const Inbox = ({ children }) => {
                   type="button"
                   // title={btn.text}
                 >
-                  <div className="">{btn.displayCount}</div>
-                  <div className="text-[9px]">{btn.text}</div>
+                  {/* <div className="">{btn.displayCount}</div> */}
+                  <div className="text-[10px] p-3">{btn.text}</div>
                 </div>
               </nav>
             </div>

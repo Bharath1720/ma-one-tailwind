@@ -26,7 +26,7 @@ const Login = ({ children }) => {
     setPassword(event.target.value);
   };
   const submitHandler = (e) => {
-    if (username === "artwork" && password === "artwork") {
+    if (username === "artwork@gmail.com" && password === "artwork") {
       e.preventDefault();
       setLoggedIn(true);
       navigate("/");
@@ -81,7 +81,10 @@ const Login = ({ children }) => {
                 <h2 className="p-2 mb-4 text-lg text-center font-semibold">
                   Artwork Management System
                 </h2>
-                <div className="flex justify-between items-center">
+                <form
+                  onSubmit={submitHandler}
+                  className="flex justify-between items-center"
+                >
                   <div className="flex flex-col w-[80%] p-3 ml-2  space-y-6">
                     <input
                       type="email"
@@ -99,12 +102,14 @@ const Login = ({ children }) => {
                     />
                   </div>
                   <div>
-                    <BiChevronsRight
-                      onClick={submitHandler}
-                      className="text-[30px] bg-sky-300 cursor-pointer hover:bg-sky-500 rounded-full md:p-4 p-3 -mr-7 ring-8 ring-white box-content "
-                    />
+                    <button type="submit">
+                      <BiChevronsRight
+                        onClick={submitHandler}
+                        className="text-[30px] bg-sky-300 cursor-pointer hover:bg-sky-500 rounded-full md:p-4 p-3 -mr-7 ring-8 ring-white box-content "
+                      />
+                    </button>
                   </div>
-                </div>
+                </form>
                 <p
                   onClick={forgetPassHandler}
                   className="text-xs mb-9 w-fit ml-2 p-3 cursor-pointer"
